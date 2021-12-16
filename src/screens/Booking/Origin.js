@@ -1,10 +1,16 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React from 'react';
+import {StyleSheet, Text, View, Button} from 'react-native';
 
-export const Origin = () => {
+export const Origin = ({navigation}) => {
   return (
     <View>
       <Text>Origin Screen</Text>
+      <Button
+        onPress={() => navigation.navigate('Destiny')}
+        title="To Destiny"
+      />
+      <Button onPress={() => navigation.navigate('Home')} title="HOME" />
+      <Button onPress={() => navigation.goBack()} title="Back" />
     </View>
-  )
-}
+  );
+};

@@ -1,11 +1,5 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-
-export const Booking = () => {
-  return (
-    <View>
-      <Text>Booking screen</Text>
-    </View>
-  )
-}
-
+export {Calendar} from './Calendar';
+export {Confirmation} from './Confirmation';
+export {Destiny} from './Destiny';
+export {Origin} from './Origin';
+export {Passenger} from './Passengers';
