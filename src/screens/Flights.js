@@ -1,11 +1,13 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import React from 'react';
+import {Text, View, Button} from 'react-native';
 
-export const Flights = () => {
+export const Flights = ({navigation}) => {
   return (
     <View>
-      <Text>Flight screen</Text>
+      <Text>Flights screen</Text>
+      <Button onPress={() => navigation.navigate('Origin')} title="To Origin" />
+      <Button onPress={() => navigation.navigate('Home')} title="HOME" />
+      <Button onPress={() => navigation.goBack()} title="Back" />
     </View>
-  )
-}
-
+  );
+};
