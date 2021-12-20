@@ -9,7 +9,6 @@ export const Passenger = ({navigation}) => {
         onPress={() => navigation.navigate('Confirmation')}
         title="To Confirmation"
       />
-      <Button onPress={() => navigation.navigate('Home')} title="HOME" />
       <Button onPress={() => navigation.goBack()} title="Back" />
     </View>
   );

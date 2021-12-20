@@ -9,7 +9,6 @@ export const Destiny = ({navigation}) => {
         onPress={() => navigation.navigate('Calendar')}
         title="To Calendar"
       />
-      <Button onPress={() => navigation.navigate('Home')} title="HOME" />
       <Button onPress={() => navigation.goBack()} title="Back" />
     </View>
   );

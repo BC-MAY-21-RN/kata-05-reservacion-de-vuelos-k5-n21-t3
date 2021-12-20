@@ -9,7 +9,6 @@ export const Origin = ({navigation}) => {
         onPress={() => navigation.navigate('Destiny')}
         title="To Destiny"
       />
-      <Button onPress={() => navigation.navigate('Home')} title="HOME" />
       <Button onPress={() => navigation.goBack()} title="Back" />
     </View>
   );

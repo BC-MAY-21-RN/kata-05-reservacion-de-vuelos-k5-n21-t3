@@ -1,15 +1,11 @@
 import React from 'react';
 import {StyleSheet, Text, View, Button} from 'react-native';
+import {SignUpScreen} from '../components/SignUp';
 
 export const SignUp = ({navigation}) => {
   return (
     <View>
-      <Text>SignUp screen</Text>
-      <Button
-        onPress={() => navigation.navigate('Flights')}
-        title="To Flights"
-      />
-      <Button onPress={() => navigation.navigate('Home')} title="HOME" />
+      <SignUpScreen navegacion={navigation} />
     </View>
   );
 };
