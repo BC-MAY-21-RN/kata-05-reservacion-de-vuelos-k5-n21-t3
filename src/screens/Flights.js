@@ -6,7 +6,6 @@ export const Flights = ({navigation}) => {
     <View>
       <Text>Flights screen</Text>
       <Button onPress={() => navigation.navigate('Origin')} title="To Origin" />
-      <Button onPress={() => navigation.navigate('Home')} title="HOME" />
       <Button onPress={() => navigation.goBack()} title="Back" />
     </View>
   );

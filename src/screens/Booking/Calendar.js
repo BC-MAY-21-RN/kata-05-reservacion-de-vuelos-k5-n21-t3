@@ -9,7 +9,6 @@ export const Calendar = ({navigation}) => {
         onPress={() => navigation.navigate('Passenger')}
         title="To Passengers"
       />
-      <Button onPress={() => navigation.navigate('Home')} title="HOME" />
       <Button onPress={() => navigation.goBack()} title="Back" />
     </View>
   );
