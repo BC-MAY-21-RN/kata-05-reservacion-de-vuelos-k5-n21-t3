@@ -1,12 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {
-  Text,
-  View,
-  Button,
-  TouchableOpacity,
-  StyleSheet,
-  Image,
-} from 'react-native';
+import {Text, View, Button, TouchableOpacity, StyleSheet} from 'react-native';
 import {
   Container,
   CustomButton,
@@ -40,8 +33,10 @@ export const SignUpScreen = ({navegacion, Title}) => {
           Use 8 or more characters with a mix of letters, numbers and symbols
         </TextMini>
       </Container>
-      <CustomCheckBox Title={'I agree to the Terms and Privacy Policy.'} />
-      <CustomCheckBox Title={'Subscribe for select product updates.'} />
+      <View style={styles.checkBoxStyle}>
+        <CustomCheckBox Title={'I agree to the Terms and Privacy Policy.'} />
+        <CustomCheckBox Title={'Subscribe for select product updates.'} />
+      </View>
 
       <LoginButton onPress={() => navegacion.navigate('Flights')}>
         <LoginText>Sign Up</LoginText>
@@ -68,4 +63,5 @@ const styles = StyleSheet.create({
   bold: {fontWeight: 'bold'},
   italic: {fontStyle: 'italic'},
   underline: {textDecorationLine: 'underline'},
+  checkBoxStyle: {paddingLeft: 30, paddingRight: 10},
 });
