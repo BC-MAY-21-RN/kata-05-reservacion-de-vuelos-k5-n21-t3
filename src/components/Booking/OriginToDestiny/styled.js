@@ -12,7 +12,7 @@ export const FlightsTopContainer = styled.View`
   width: 350px;
   height: 70px;
   margin: auto;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   font-size: 15px;
   display: flex;
   flex-direction: row;
@@ -48,5 +48,29 @@ export const CountryDestiny = styled.Text`
 export const StateDestiny = styled.Text`
   font-size: 15px;
   margin-bottom: 10px;
+  text-align: right;
+`;
+export const DatePassengersContainer = styled.View`
+  //border-bottom-color: black;
+  //border-bottom-width: 1px;
+  width: 350px;
+  height: 40px;
+  margin: auto;
+  margin-bottom: 20px;
+  font-size: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+`;
+export const DateFlight = styled.Text`
+  text-align: left;
+  color: black;
+  font-size: 15px;
+`;
+export const PassengersNumber = styled.Text`
+  color: black;
+  font-size: 15px;
   text-align: right;
 `;

@@ -6,13 +6,8 @@
 
 import styled from 'styled-components';
 
-export const ArrowBack = styled.Text`
-  margin-top: 30px;
-  left: 31px;
-  color: #5c6ef8;
-  font-size: 35px;
-  font-weight: bold;
-  margin-bottom: 10px;
+export const ViewMain = styled.View`
+  margin-top: 50%;
 `;
 
 export const TitleScreen = styled.Text`
@@ -32,7 +27,7 @@ export const NextButton = styled.TouchableOpacity`
   text-align: auto;
   border-radius: 10px;
   padding: 10px;
-  bottom: -60px;
+  bottom: -230px;
 `;
 
 export const NextText = styled.Text`

@@ -3,8 +3,7 @@ import {View, TouchableHighlight} from 'react-native';
 import {TitleScreen, NextButton, NextText, ArrowBack} from './styled';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {OriginToDestiny} from '../OriginToDestiny';
-
-import ScrollPicker from 'react-native-wheel-scrollview-picker';
+import {PassengersPicker} from './PassengersPicker';
 
 export const PassengersScreen = ({navegacion}) => {
   return (
@@ -21,23 +20,7 @@ export const PassengersScreen = ({navegacion}) => {
         StateDestiny="Tokyo"
       />
       <TitleScreen>How many{'\n'}passengers?</TitleScreen>
-
-      <ScrollPicker
-        dataSource={['1', '2', '3', '4', '5', '6']}
-        selectedIndex={1}
-        renderItem={(data, index) => {
-          //
-        }}
-        onValueChange={(data, selectedIndex) => {
-          //
-        }}
-        wrapperHeight={180}
-        wrapperWidth={150}
-        wrapperBackground="#FFFFFF"
-        itemHeight={60}
-        highlightColor="#d8d8d8"
-        highlightBorderWidth={2}
-      />
+      <PassengersPicker />
 
       <NextButton onPress={() => navegacion.navigate('Confirmation')}>
         <NextText>Next</NextText>

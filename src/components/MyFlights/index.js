@@ -1,15 +1,76 @@
 import React from 'react';
-import {Text, View, Button} from 'react-native';
+import {ScrollView, Text, TouchableHighlight} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import {OriginToDestiny} from '../Booking/OriginToDestiny';
+import {PlusButton, TittleLogin, ViewMain} from './styled';
 
 export const FlightScreen = ({navegacion}) => {
   return (
-    <View>
-      <Text>Flights screen</Text>
-
-      <Button onPress={() => navegacion.navigate('Origin')} title="+" />
-      <Button onPress={() => navegacion.goBack()} title="Back" />
-      <Icon name="plus-circle" size={40} color="#5c6ef8" />
-    </View>
+    <ViewMain>
+      <TittleLogin>My Flights</TittleLogin>
+      <ScrollView>
+        <OriginToDestiny
+          CountryOrigin="MEX"
+          StateOrigin="Colima"
+          CountryDestiny="JAP"
+          StateDestiny="Tokyo"
+          DateFlight="September 3, 2020"
+          PassengersNumber="2 passengers"
+        />
+        <OriginToDestiny
+          CountryOrigin="MEX"
+          StateOrigin="Colima"
+          CountryDestiny="JAP"
+          StateDestiny="Tokyo"
+          DateFlight="September 3, 2020"
+          PassengersNumber="2 passengers"
+        />
+        <OriginToDestiny
+          CountryOrigin="MEX"
+          StateOrigin="Colima"
+          CountryDestiny="JAP"
+          StateDestiny="Tokyo"
+          DateFlight="September 3, 2020"
+          PassengersNumber="2 passengers"
+        />
+        <OriginToDestiny
+          CountryOrigin="MEX"
+          StateOrigin="Colima"
+          CountryDestiny="JAP"
+          StateDestiny="Tokyo"
+          DateFlight="September 3, 2020"
+          PassengersNumber="2 passengers"
+        />
+        <OriginToDestiny
+          CountryOrigin="MEX"
+          StateOrigin="Colima"
+          CountryDestiny="JAP"
+          StateDestiny="Tokyo"
+          DateFlight="September 3, 2020"
+          PassengersNumber="2 passengers"
+        />
+        <OriginToDestiny
+          CountryOrigin="MEX"
+          StateOrigin="Colima"
+          CountryDestiny="JAP"
+          StateDestiny="Tokyo"
+          DateFlight="September 3, 2020"
+          PassengersNumber="2 passengers"
+        />
+        <OriginToDestiny
+          CountryOrigin="MEX"
+          StateOrigin="Colima"
+          CountryDestiny="JAP"
+          StateDestiny="Tokyo"
+          DateFlight="September 3, 2020"
+          PassengersNumber="2 passengers"
+        />
+      </ScrollView>
+      <PlusButton>
+        <TouchableHighlight onPress={() => navegacion.navigate('Origin')}>
+          <Icon name="plus-circle" size={50} color="#5c6ef8" />
+        </TouchableHighlight>
+      </PlusButton>
+    </ViewMain>
   );
 };

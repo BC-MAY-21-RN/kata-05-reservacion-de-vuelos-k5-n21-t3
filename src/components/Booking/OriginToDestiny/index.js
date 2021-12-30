@@ -7,6 +7,9 @@ import {
   CountryDestiny,
   StateDestiny,
   Plane,
+  DatePassengersContainer,
+  DateFlight,
+  PassengersNumber,
 } from './styled';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
@@ -27,6 +30,11 @@ export const OriginToDestiny = props => {
           <StateDestiny>{props.StateDestiny}</StateDestiny>
         </View>
       </FlightsTopContainer>
+
+      <DatePassengersContainer>
+        <DateFlight>{props.DateFlight}</DateFlight>
+        <PassengersNumber>{props.PassengersNumber}</PassengersNumber>
+      </DatePassengersContainer>
     </View>
   );
 };
