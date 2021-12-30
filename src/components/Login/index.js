@@ -1,8 +1,7 @@
 import React from 'react';
-import {Text, View, Button, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, StyleSheet} from 'react-native';
 import {
   Container,
-  CustomButton,
   CustomInput,
   TittleLogin,
   TextCustom,
@@ -44,7 +43,5 @@ export const LoginScreen = ({navegacion}) => {
 };
 
 const styles = StyleSheet.create({
-  bold: {fontWeight: 'bold'},
-  italic: {fontStyle: 'italic'},
   underline: {textDecorationLine: 'underline'},
 });

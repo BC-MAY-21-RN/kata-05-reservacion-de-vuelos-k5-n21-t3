@@ -1,15 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text, View, Button} from 'react-native';
+import {View} from 'react-native';
+import {PassengersScreen} from '../../components/Booking/Passengers';
 
-export const Passenger = ({navigation}) => {
+export const Passengers = ({navigation}) => {
   return (
     <View>
-      <Text>Passenger Screen</Text>
-      <Button
-        onPress={() => navigation.navigate('Confirmation')}
-        title="To Confirmation"
-      />
-      <Button onPress={() => navigation.goBack()} title="Back" />
+      <PassengersScreen navegacion={navigation} />
     </View>
   );
 };

@@ -1,8 +1,7 @@
-import React, {useState, useEffect} from 'react';
-import {Text, View, Button, TouchableOpacity, StyleSheet} from 'react-native';
+import React from 'react';
+import {View, StyleSheet} from 'react-native';
 import {
   Container,
-  CustomButton,
   CustomInput,
   TittleLogin,
   TextCustom,
@@ -12,13 +11,12 @@ import {
   TextQuestion,
   TextSeparator,
   ImageGoogle,
+  CheckBoxView,
 } from './styled';
 import {CustomCheckBox} from './checkBoxTemplate';
 import {Link} from '@react-navigation/native';
-import {CheckBox, Icon, SocialIcon} from 'react-native-elements';
-import {google} from '../../library/Image/google.png';
 
-export const SignUpScreen = ({navegacion, Title}) => {
+export const SignUpScreen = ({navegacion}) => {
   return (
     <View>
       <TittleLogin>Sign Up</TittleLogin>
@@ -33,10 +31,10 @@ export const SignUpScreen = ({navegacion, Title}) => {
           Use 8 or more characters with a mix of letters, numbers and symbols
         </TextMini>
       </Container>
-      <View style={styles.checkBoxStyle}>
+      <CheckBoxView>
         <CustomCheckBox Title={'I agree to the Terms and Privacy Policy.'} />
         <CustomCheckBox Title={'Subscribe for select product updates.'} />
-      </View>
+      </CheckBoxView>
 
       <LoginButton onPress={() => navegacion.navigate('Flights')}>
         <LoginText>Sign Up</LoginText>
@@ -60,8 +58,5 @@ export const SignUpScreen = ({navegacion, Title}) => {
 };
 
 const styles = StyleSheet.create({
-  bold: {fontWeight: 'bold'},
-  italic: {fontStyle: 'italic'},
   underline: {textDecorationLine: 'underline'},
-  checkBoxStyle: {paddingLeft: 30, paddingRight: 10},
 });
