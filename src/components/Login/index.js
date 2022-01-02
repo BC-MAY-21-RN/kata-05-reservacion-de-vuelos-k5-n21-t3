@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {View, StyleSheet, Button} from 'react-native';
 import {
   Container,
   CustomInput,
@@ -11,6 +11,9 @@ import {
   TextQuestion,
 } from './styled';
 import {Link} from '@react-navigation/native';
+import {AuthenticationMethod} from '../AutthenticationMethod';
+import {LoginUser} from '../AutthenticationMethod/LogInUser';
+import {LogOff} from '../AutthenticationMethod/LogOff';
 
 export const LoginScreen = ({navegacion}) => {
   return (
@@ -18,9 +21,15 @@ export const LoginScreen = ({navegacion}) => {
       <TittleLogin>Login</TittleLogin>
       <Container>
         <TextCustom>Email *</TextCustom>
-        <CustomInput placeholder="Put your email. ej: @gmail.com, @outlook.com" />
+        <CustomInput
+          placeholder="Put your email. ej: @gmail.com, @outlook.com"
+          onChangeText={text1 => LoginUser(text1)}
+        />
         <TextCustom>Password *</TextCustom>
-        <CustomInput placeholder="Top secret password O~O" />
+        <CustomInput
+          placeholder="Top secret password"
+          onChangeText={text2 => LoginUser(text2)}
+        />
         <TextMini>
           Use 8 or more characters with a mix of letters, numbers and symbols
         </TextMini>
@@ -29,6 +38,7 @@ export const LoginScreen = ({navegacion}) => {
       <LoginButton onPress={() => navegacion.navigate('Flights')}>
         <LoginText>Login</LoginText>
       </LoginButton>
+
       <TextQuestion>
         You dont have an account?{' '}
         <Link
@@ -38,6 +48,9 @@ export const LoginScreen = ({navegacion}) => {
           Sign Up{' '}
         </Link>
       </TextQuestion>
+      <AuthenticationMethod />
+      <Button title="Log in" onPress={LoginUser} />
+      <Button title="Logoff" onPress={LogOff} />
     </View>
   );
 };

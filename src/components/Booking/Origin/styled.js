@@ -46,7 +46,7 @@ export const NextButton = styled.TouchableOpacity`
   text-align: auto;
   border-radius: 10px;
   padding: 10px;
-  bottom: -200px;
+  bottom: -240px;
 `;
 
 export const NextText = styled.Text`

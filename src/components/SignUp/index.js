@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, StyleSheet} from 'react-native';
+import {useState, StyleSheet, Button, ScrollView} from 'react-native';
 import {
   Container,
   CustomInput,
@@ -15,10 +15,12 @@ import {
 } from './styled';
 import {CustomCheckBox} from './checkBoxTemplate';
 import {Link} from '@react-navigation/native';
+import {AuthenticationMethod} from '../AutthenticationMethod';
+import {CreateUser} from '../AutthenticationMethod/CreateUser';
 
 export const SignUpScreen = ({navegacion}) => {
   return (
-    <View>
+    <ScrollView>
       <TittleLogin>Sign Up</TittleLogin>
       <Container>
         <TextCustom>First Name</TextCustom>
@@ -45,7 +47,7 @@ export const SignUpScreen = ({navegacion}) => {
         <LoginText>Sign Up with Google</LoginText>
       </LoginButton>
       <TextQuestion>
-        {'Already have an account? '} {/*espacio={''}*/}
+        {'Already have an account? '}
         <Link
           style={styles.underline}
           to={{screen: 'Login', params: {navegacion: navegacion}}}>
@@ -53,7 +55,9 @@ export const SignUpScreen = ({navegacion}) => {
           Login{' '}
         </Link>
       </TextQuestion>
-    </View>
+      <AuthenticationMethod />
+      <Button title="Create User" onPress={CreateUser} />
+    </ScrollView>
   );
 };
 
