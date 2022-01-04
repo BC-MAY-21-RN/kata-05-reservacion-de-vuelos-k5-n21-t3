@@ -14,14 +14,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "371992773976-o9j1m1i9ef6gab7hb7ccm9hsdv2d5lhf.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.reservacionvuelos",
-            "certificate_hash": "ac9ad61836ee7640bfb4305fc492d59e9a28534e"
-          }
-        },
-        {
           "client_id": "371992773976-3e25baika1uqn078iup4kfaujso12ko6.apps.googleusercontent.com",
           "client_type": 3
         }
