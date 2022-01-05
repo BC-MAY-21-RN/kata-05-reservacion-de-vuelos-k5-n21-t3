@@ -1,8 +1,7 @@
 import React from 'react';
-import {Text, View, Button, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, StyleSheet, Button} from 'react-native';
 import {
   Container,
-  CustomButton,
   CustomInput,
   TittleLogin,
   TextCustom,
@@ -12,6 +11,9 @@ import {
   TextQuestion,
 } from './styled';
 import {Link} from '@react-navigation/native';
+import {AuthenticationMethod} from '../AutthenticationMethod';
+import {LoginUser} from '../AutthenticationMethod/LogInUser';
+import {LogOff} from '../AutthenticationMethod/LogOff';
 
 export const LoginScreen = ({navegacion}) => {
   return (
@@ -19,17 +21,24 @@ export const LoginScreen = ({navegacion}) => {
       <TittleLogin>Login</TittleLogin>
       <Container>
         <TextCustom>Email *</TextCustom>
-        <CustomInput placeholder="Put your email. ej: @gmail.com, @outlook.com" />
+        <CustomInput
+          placeholder="Put your email. ej: @gmail.com, @outlook.com"
+          onChangeText={text1 => LoginUser(text1)}
+        />
         <TextCustom>Password *</TextCustom>
-        <CustomInput placeholder="Top secret password O~O" />
+        <CustomInput
+          placeholder="Top secret password"
+          onChangeText={text2 => LoginUser(text2)}
+        />
         <TextMini>
           Use 8 or more characters with a mix of letters, numbers and symbols
         </TextMini>
       </Container>
 
-      <LoginButton onPress={() => navegacion.navigate('Flights')}>
+      <LoginButton onPress={LoginUser}>
         <LoginText>Login</LoginText>
       </LoginButton>
+
       <TextQuestion>
         You dont have an account?{' '}
         <Link
@@ -39,12 +48,16 @@ export const LoginScreen = ({navegacion}) => {
           Sign Up{' '}
         </Link>
       </TextQuestion>
+      <AuthenticationMethod />
+
+      <Button title="Logoff" onPress={LogOff} />
+      <LoginUser navegacion={navegacion} />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  bold: {fontWeight: 'bold'},
-  italic: {fontStyle: 'italic'},
   underline: {textDecorationLine: 'underline'},
 });
+
+//onPress={() => navegacion.navigate('Flights')}

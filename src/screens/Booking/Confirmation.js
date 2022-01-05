@@ -1,13 +1,11 @@
 import React from 'react';
-import {Text, View, Button} from 'react-native';
+import {View} from 'react-native';
+import {ConfirmationScreen} from '../../components/Booking/Confirmation';
 
 export const Confirmation = ({navigation}) => {
   return (
     <View>
-      <Text>Confirmation Screen</Text>
-
-      <Button onPress={() => navigation.navigate('Flights')} title="Flights" />
-      <Button onPress={() => navigation.goBack()} title="Back" />
+      <ConfirmationScreen navegacion={navigation} />
     </View>
   );
 };

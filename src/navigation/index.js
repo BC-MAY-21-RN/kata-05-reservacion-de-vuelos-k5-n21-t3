@@ -6,7 +6,7 @@ import {
   Destiny,
   Origin,
   Calendar,
-  Passenger,
+  Passengers,
   Confirmation,
 } from '../screens/Booking';
 
@@ -26,7 +26,7 @@ const Routing = () => {
         <Stack.Screen name="Origin" component={Origin} />
         <Stack.Screen name="Destiny" component={Destiny} />
         <Stack.Screen name="Calendar" component={Calendar} />
-        <Stack.Screen name="Passenger" component={Passenger} />
+        <Stack.Screen name="Passengers" component={Passengers} />
         <Stack.Screen name="Confirmation" component={Confirmation} />
       </Stack.Navigator>
     </NavigationContainer>

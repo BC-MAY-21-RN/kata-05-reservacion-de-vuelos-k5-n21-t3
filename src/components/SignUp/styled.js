@@ -69,3 +69,8 @@ export const ImageGoogle = styled.Image`
   height: 22px;
   margin: 7px 1px 1px 25px;
 `;
+
+export const CheckBoxView = styled.View`
+  padding-left: 30;
+`;
+

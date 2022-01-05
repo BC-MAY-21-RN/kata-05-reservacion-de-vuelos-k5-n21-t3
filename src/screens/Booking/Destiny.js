@@ -1,15 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text, View, Button} from 'react-native';
+import {View} from 'react-native';
+import {DestinyScreen} from '../../components/Booking/Destiny';
 
 export const Destiny = ({navigation}) => {
   return (
     <View>
-      <Text>Destiny Screen</Text>
-      <Button
-        onPress={() => navigation.navigate('Calendar')}
-        title="To Calendar"
-      />
-      <Button onPress={() => navigation.goBack()} title="Back" />
+      <DestinyScreen navegacion={navigation} />
     </View>
   );
 };
