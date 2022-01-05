@@ -35,7 +35,7 @@ export const LoginScreen = ({navegacion}) => {
         </TextMini>
       </Container>
 
-      <LoginButton onPress={() => navegacion.navigate('Flights')}>
+      <LoginButton onPress={LoginUser}>
         <LoginText>Login</LoginText>
       </LoginButton>
 
@@ -49,8 +49,9 @@ export const LoginScreen = ({navegacion}) => {
         </Link>
       </TextQuestion>
       <AuthenticationMethod />
-      <Button title="Log in" onPress={LoginUser} />
+
       <Button title="Logoff" onPress={LogOff} />
+      <LoginUser navegacion={navegacion} />
     </View>
   );
 };
@@ -58,3 +59,5 @@ export const LoginScreen = ({navegacion}) => {
 const styles = StyleSheet.create({
   underline: {textDecorationLine: 'underline'},
 });
+
+//onPress={() => navegacion.navigate('Flights')}

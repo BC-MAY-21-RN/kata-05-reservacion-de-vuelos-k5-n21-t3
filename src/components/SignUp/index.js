@@ -17,10 +17,28 @@ import {CustomCheckBox} from './checkBoxTemplate';
 import {Link} from '@react-navigation/native';
 import {AuthenticationMethod} from '../AutthenticationMethod';
 import {CreateUser} from '../AutthenticationMethod/CreateUser';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
+
+GoogleSignin.configure({
+  webClientId:
+    '371992773976-3e25baika1uqn078iup4kfaujso12ko6.apps.googleusercontent.com',
+});
 
 export const SignUpScreen = ({navegacion}) => {
+  async function onGoogleButtonPress() {
+    // Get the users ID token
+    const {idToken} = await GoogleSignin.signIn();
+
+    // Create a Google credential with the token
+    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+
+    // Sign-in the user with the credential
+    return auth().signInWithCredential(googleCredential);
+  }
+
   return (
     <ScrollView>
+      <AuthenticationMethod />
       <TittleLogin>Sign Up</TittleLogin>
       <Container>
         <TextCustom>First Name</TextCustom>
@@ -38,14 +56,20 @@ export const SignUpScreen = ({navegacion}) => {
         <CustomCheckBox Title={'Subscribe for select product updates.'} />
       </CheckBoxView>
 
-      <LoginButton onPress={() => navegacion.navigate('Flights')}>
+      <LoginButton onPress={CreateUser}>
         <LoginText>Sign Up</LoginText>
       </LoginButton>
       <TextSeparator>Or</TextSeparator>
-      <LoginButton onPress={() => navegacion.navigate('Flights')}>
+      <LoginButton
+        onPress={() =>
+          onGoogleButtonPress().then(() =>
+            console.log('Signed in with Google!'),
+          )
+        }>
         <ImageGoogle source={require('../../library/Image/google.png')} />
         <LoginText>Sign Up with Google</LoginText>
       </LoginButton>
+
       <TextQuestion>
         {'Already have an account? '}
         <Link
@@ -55,8 +79,7 @@ export const SignUpScreen = ({navegacion}) => {
           Login{' '}
         </Link>
       </TextQuestion>
-      <AuthenticationMethod />
-      <Button title="Create User" onPress={CreateUser} />
+      <CreateUser navegacion={navegacion} />
     </ScrollView>
   );
 };
