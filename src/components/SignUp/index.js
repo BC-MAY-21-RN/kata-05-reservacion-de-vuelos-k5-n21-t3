@@ -56,7 +56,9 @@ export const SignUpScreen = ({navegacion}) => {
         <CustomCheckBox Title={'Subscribe for select product updates.'} />
       </CheckBoxView>
 
-      <LoginButton onPress={CreateUser}>
+      <LoginButton
+        onPress={CreateUser}
+        onPress={() => navegacion.navigate('Flights')}>
         <LoginText>Sign Up</LoginText>
       </LoginButton>
       <TextSeparator>Or</TextSeparator>
@@ -67,6 +69,7 @@ export const SignUpScreen = ({navegacion}) => {
           )
         }>
         <ImageGoogle source={require('../../library/Image/google.png')} />
+
         <LoginText>Sign Up with Google</LoginText>
       </LoginButton>
 

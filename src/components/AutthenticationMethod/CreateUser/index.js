@@ -1,10 +1,9 @@
 import auth from '@react-native-firebase/auth';
 
-export const CreateUser = navegacion => {
+export const CreateUser = () => {
   auth()
     .createUserWithEmailAndPassword('luisgomez@sincorreo.com', 'superPassword')
     .then(() => {
-      navegacion.navigate('Flights');
       console.log('User account created & signed in!');
     })
     .catch(error => {
