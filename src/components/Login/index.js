@@ -35,7 +35,9 @@ export const LoginScreen = ({navegacion}) => {
         </TextMini>
       </Container>
 
-      <LoginButton onPress={LoginUser}>
+      <LoginButton
+        onPress={LoginUser}
+        onPress={() => navegacion.navigate('Flights')}>
         <LoginText>Login</LoginText>
       </LoginButton>
 

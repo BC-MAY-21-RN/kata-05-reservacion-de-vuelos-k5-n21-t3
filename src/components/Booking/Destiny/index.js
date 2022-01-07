@@ -10,6 +10,7 @@ import {
 } from './styled';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {OriginToDestiny} from '../OriginToDestiny';
+import {PickerData} from '../../Picker';
 
 export const DestinyScreen = ({navegacion}) => {
   return (
@@ -29,7 +30,7 @@ export const DestinyScreen = ({navegacion}) => {
       <TitleScreen>Where will you be {'\n'}flying to?</TitleScreen>
 
       <Container>
-        <CustomInput placeholder="Select location" />
+        <PickerData />
       </Container>
 
       <NextButton onPress={() => navegacion.navigate('Calendar')}>

@@ -28,7 +28,6 @@ export const FlightsTopContainer = styled.View`
   width: 350px;
   height: 70px;
   margin: auto;
-  margin-bottom: 30px;
   font-size: 15px;
   display: flex;
   flex-direction: row;
