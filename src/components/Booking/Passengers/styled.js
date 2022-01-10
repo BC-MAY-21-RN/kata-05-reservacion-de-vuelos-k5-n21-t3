@@ -20,7 +20,11 @@ export const TitleScreen = styled.Text`
   color: black;
   font-size: 35px;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 80px;
+`;
+
+export const Container = styled.View`
+  margin: auto;
 `;
 
 export const NextButton = styled.TouchableOpacity`
@@ -32,7 +36,7 @@ export const NextButton = styled.TouchableOpacity`
   text-align: auto;
   border-radius: 10px;
   padding: 10px;
-  bottom: -60px;
+  bottom: -240px;
 `;
 
 export const NextText = styled.Text`
