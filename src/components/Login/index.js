@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, StyleSheet, Button} from 'react-native';
 import {
   Container,
@@ -14,8 +14,15 @@ import {Link} from '@react-navigation/native';
 import {AuthenticationMethod} from '../AutthenticationMethod';
 import {LoginUser} from '../AutthenticationMethod/LogInUser';
 import {LogOff} from '../AutthenticationMethod/LogOff';
+import {LoadingAnimation} from '../Animation/Loading';
+
+import auth from '@react-native-firebase/auth';
 
 export const LoginScreen = ({navegacion}) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+
   return (
     <View>
       <TittleLogin>Login</TittleLogin>
@@ -23,24 +30,25 @@ export const LoginScreen = ({navegacion}) => {
         <TextCustom>Email *</TextCustom>
         <CustomInput
           placeholder="Put your email. ej: @gmail.com, @outlook.com"
-          onChangeText={text1 => LoginUser(text1)}
+          onChangeText={email => setEmail(email)}
         />
         <TextCustom>Password *</TextCustom>
         <CustomInput
           placeholder="Top secret password"
-          onChangeText={text2 => LoginUser(text2)}
+          onChangeText={password => setPassword(password)}
         />
         <TextMini>
           Use 8 or more characters with a mix of letters, numbers and symbols
         </TextMini>
       </Container>
-
       <LoginButton
-        onPress={LoginUser}
-        onPress={() => navegacion.navigate('Flights')}>
+        onPress={() => {
+          setLoading(true);
+          setLoading(LoginUser(email, password, navegacion));
+          console.log(loading);
+        }}>
         <LoginText>Login</LoginText>
       </LoginButton>
-
       <TextQuestion>
         You dont have an account?{' '}
         <Link
@@ -51,9 +59,8 @@ export const LoginScreen = ({navegacion}) => {
         </Link>
       </TextQuestion>
       <AuthenticationMethod />
-
       <Button title="Logoff" onPress={LogOff} />
-      <LoginUser navegacion={navegacion} />
+      {loading == undefined ? <LoadingAnimation /> : null}
     </View>
   );
 };
@@ -61,5 +68,3 @@ export const LoginScreen = ({navegacion}) => {
 const styles = StyleSheet.create({
   underline: {textDecorationLine: 'underline'},
 });
-
-//onPress={() => navegacion.navigate('Flights')}

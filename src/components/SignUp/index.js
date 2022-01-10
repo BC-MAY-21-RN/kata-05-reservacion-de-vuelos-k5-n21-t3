@@ -90,3 +90,8 @@ export const SignUpScreen = ({navegacion}) => {
 const styles = StyleSheet.create({
   underline: {textDecorationLine: 'underline'},
 });
+
+
+
+
+
