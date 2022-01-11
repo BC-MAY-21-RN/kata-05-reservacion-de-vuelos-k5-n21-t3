@@ -1,5 +1,5 @@
-import React from 'react';
-import {useState, StyleSheet, Button, ScrollView} from 'react-native';
+import React, {useState} from 'react';
+import {StyleSheet, ScrollView} from 'react-native';
 import {
   Container,
   CustomInput,
@@ -18,6 +18,8 @@ import {Link} from '@react-navigation/native';
 import {AuthenticationMethod} from '../AutthenticationMethod';
 import {CreateUser} from '../AutthenticationMethod/CreateUser';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import {LoadingAnimation} from '../Animation/Loading';
+import auth from '@react-native-firebase/auth';
 
 GoogleSignin.configure({
   webClientId:
@@ -25,6 +27,10 @@ GoogleSignin.configure({
 });
 
 export const SignUpScreen = ({navegacion}) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+
   async function onGoogleButtonPress() {
     // Get the users ID token
     const {idToken} = await GoogleSignin.signIn();
@@ -41,12 +47,16 @@ export const SignUpScreen = ({navegacion}) => {
       <AuthenticationMethod />
       <TittleLogin>Sign Up</TittleLogin>
       <Container>
-        <TextCustom>First Name</TextCustom>
-        <CustomInput placeholder="Put your name here" />
         <TextCustom>Email *</TextCustom>
-        <CustomInput placeholder="Put your email. ej: @gmail.com, @outlook.com" />
+        <CustomInput
+          placeholder="Put your email. ej: @gmail.com, @outlook.com"
+          onChangeText={email => setEmail(email)}
+        />
         <TextCustom>Password *</TextCustom>
-        <CustomInput placeholder="Top secret password O~O" />
+        <CustomInput
+          placeholder="Top secret password"
+          onChangeText={password => setPassword(password)}
+        />
         <TextMini>
           Use 8 or more characters with a mix of letters, numbers and symbols
         </TextMini>
@@ -57,11 +67,16 @@ export const SignUpScreen = ({navegacion}) => {
       </CheckBoxView>
 
       <LoginButton
-        onPress={CreateUser}
-        onPress={() => navegacion.navigate('Flights')}>
-        <LoginText>Sign Up</LoginText>
+        onPress={() => {
+          setLoading(true);
+          setLoading(CreateUser(email, password, navegacion));
+          console.log(loading);
+        }}>
+        <LoginText>Sign up</LoginText>
       </LoginButton>
+
       <TextSeparator>Or</TextSeparator>
+
       <LoginButton
         onPress={() =>
           onGoogleButtonPress().then(() =>
@@ -82,7 +97,6 @@ export const SignUpScreen = ({navegacion}) => {
           Login{' '}
         </Link>
       </TextQuestion>
-      <CreateUser navegacion={navegacion} />
     </ScrollView>
   );
 };
@@ -90,8 +104,3 @@ export const SignUpScreen = ({navegacion}) => {
 const styles = StyleSheet.create({
   underline: {textDecorationLine: 'underline'},
 });
-
-
-
-
-
