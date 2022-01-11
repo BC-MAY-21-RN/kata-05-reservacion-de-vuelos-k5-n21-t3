@@ -12,6 +12,7 @@ export const ArrowBack = styled.Text`
   font-size: 35px;
   font-weight: bold;
   margin-bottom: 10px;
+  width: 100px;
 `;
 
 export const TitleScreen = styled.Text`

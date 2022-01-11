@@ -3,6 +3,7 @@ import {Alert} from 'react-native';
 
 export const LoginUser = (email, password, navegacion) => {
   if (email && password) {
+    //  setTimeout(()=>{
     auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
@@ -48,5 +49,5 @@ export const LoginUser = (email, password, navegacion) => {
         }
         console.error(error);
       });
-  }
+  } //,5000)}
 };

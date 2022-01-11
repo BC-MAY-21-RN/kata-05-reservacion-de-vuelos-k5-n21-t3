@@ -15,12 +15,18 @@ export const CustomInput = styled.TextInput`
 `;
 
 export const TittleLogin = styled.Text`
-  margin-top: 30px;
+  margin-top: 50px;
   left: 31px;
   color: #5c6ef8;
   font-size: 35px;
   font-weight: bold;
   margin-bottom: 40px;
+  position: relative;
+`;
+export const LogedUser = styled.Text`
+  left: 31px;
+  position: absolute;
+  top: 75px;
 `;
 
 export const TextCustom = styled.Text`
@@ -36,7 +42,7 @@ export const TextMini = styled.Text`
 
 export const Container = styled.View`
   aling-content: center;
-  margin: 10px;
+  margin: 30px;
 `;
 
 export const LoginButton = styled.TouchableOpacity`

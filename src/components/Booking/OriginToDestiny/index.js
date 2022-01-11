@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import {View, Text} from 'react-native';
 import {
   FlightsTopContainer,
   CountryOrigin,
@@ -33,7 +33,9 @@ export const OriginToDestiny = props => {
 
       <DatePassengersContainer>
         <DateFlight>{props.DateFlight}</DateFlight>
-        <PassengersNumber>{props.PassengersNumber}</PassengersNumber>
+        <PassengersNumber>
+          {props.PassengersNumber} <Text> Passengers</Text>
+        </PassengersNumber>
       </DatePassengersContainer>
     </View>
   );

@@ -18,8 +18,6 @@ import {Link} from '@react-navigation/native';
 import {AuthenticationMethod} from '../AutthenticationMethod';
 import {CreateUser} from '../AutthenticationMethod/CreateUser';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
-import {LoadingAnimation} from '../Animation/Loading';
-import auth from '@react-native-firebase/auth';
 
 GoogleSignin.configure({
   webClientId:
@@ -44,7 +42,6 @@ export const SignUpScreen = ({navegacion}) => {
 
   return (
     <ScrollView>
-      <AuthenticationMethod />
       <TittleLogin>Sign Up</TittleLogin>
       <Container>
         <TextCustom>Email *</TextCustom>

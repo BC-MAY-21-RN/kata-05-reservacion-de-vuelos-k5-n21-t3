@@ -9,14 +9,12 @@ import {
   LoginButton,
   LoginText,
   TextQuestion,
+  LogedUser,
 } from './styled';
 import {Link} from '@react-navigation/native';
-import {AuthenticationMethod} from '../AutthenticationMethod';
+//import {AuthenticationMethod} from '../AutthenticationMethod';
+//import {LoadingAnimation} from '../Animation/Loading';
 import {LoginUser} from '../AutthenticationMethod/LogInUser';
-import {LogOff} from '../AutthenticationMethod/LogOff';
-import {LoadingAnimation} from '../Animation/Loading';
-
-import auth from '@react-native-firebase/auth';
 
 export const LoginScreen = ({navegacion}) => {
   const [email, setEmail] = useState('');
@@ -26,6 +24,9 @@ export const LoginScreen = ({navegacion}) => {
   return (
     <View>
       <TittleLogin>Login</TittleLogin>
+      {/*<LogedUser>
+        <AuthenticationMethod />
+      </LogedUser> Esto sirve para ver que usuario está logeado*/}
       <Container>
         <TextCustom>Email *</TextCustom>
         <CustomInput
@@ -58,8 +59,7 @@ export const LoginScreen = ({navegacion}) => {
           Sign Up{' '}
         </Link>
       </TextQuestion>
-      <AuthenticationMethod />
-      <Button title="Logoff" onPress={LogOff} />
+      {/*  {loading == undefined ? <LoadingAnimation /> : null}*/}
     </View>
   );
 };
