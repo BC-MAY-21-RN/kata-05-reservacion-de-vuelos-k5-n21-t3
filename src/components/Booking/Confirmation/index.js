@@ -2,6 +2,7 @@ import React from 'react';
 
 import {TitleScreen, NextButton, NextText, ViewMain} from './styled';
 import {OriginToDestiny} from '../OriginToDestiny';
+import {ButtonLogOff} from '../../AutthenticationMethod/ButtonLogOff';
 
 export const ConfirmationScreen = ({navegacion}) => {
   return (

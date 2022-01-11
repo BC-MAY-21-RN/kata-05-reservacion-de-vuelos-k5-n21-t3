@@ -6,12 +6,23 @@
 
 import styled from 'styled-components';
 
+export const LogOffButton = styled.TouchableOpacity`
+  margin-top: 30px;
+  background-color: #5c6ef8;
+  width: 80px;
+  border-radius: 10px;
+  padding: 10px;
+  position: absolute;
+  right: 31px;
+`;
+
 export const ArrowBack = styled.Text`
   margin-top: 30px;
   left: 31px;
   color: #5c6ef8;
   font-weight: bold;
   margin-bottom: 40px;
+  width: 100px;
 `;
 
 export const TitleScreen = styled.Text`

@@ -10,10 +10,13 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {OriginToDestiny} from '../OriginToDestiny';
 import {PassengersPicker} from './PassengersPicker';
+import {ButtonLogOff} from '../../AutthenticationMethod/ButtonLogOff';
 
 export const PassengersScreen = ({navegacion}) => {
   return (
     <View>
+      <ButtonLogOff navegacion={navegacion} />
+
       <ArrowBack>
         <TouchableHighlight onPress={() => navegacion.goBack()}>
           <Icon name="angle-left" size={40} color="#5c6ef8" />

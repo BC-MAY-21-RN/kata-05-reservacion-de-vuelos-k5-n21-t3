@@ -4,10 +4,13 @@ import {TitleScreen, NextButton, NextText, ArrowBack} from './styled';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {OriginToDestiny} from '../OriginToDestiny';
 import {CalendarPicker} from './CalendarPicker';
+import {ButtonLogOff} from '../../AutthenticationMethod/ButtonLogOff';
 
 export const CalendarScreen = ({navegacion}) => {
   return (
     <View>
+      <ButtonLogOff navegacion={navegacion} />
+
       <ArrowBack>
         <TouchableHighlight onPress={() => navegacion.goBack()}>
           <Icon name="angle-left" size={40} color="#5c6ef8" />
