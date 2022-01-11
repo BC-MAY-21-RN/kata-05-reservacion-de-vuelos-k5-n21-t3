@@ -60,7 +60,6 @@ export const LoginScreen = ({navegacion}) => {
       </TextQuestion>
       <AuthenticationMethod />
       <Button title="Logoff" onPress={LogOff} />
-      {loading == undefined ? <LoadingAnimation /> : null}
     </View>
   );
 };
