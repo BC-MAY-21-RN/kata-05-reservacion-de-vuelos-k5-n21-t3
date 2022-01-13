@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, TouchableHighlight} from 'react-native';
 import {TitleScreen, NextButton, NextText, ArrowBack} from './styled';
 import Icon from 'react-native-vector-icons/FontAwesome5';
@@ -6,7 +6,10 @@ import {OriginToDestiny} from '../OriginToDestiny';
 import {CalendarPicker} from './CalendarPicker';
 import {ButtonLogOff} from '../../AutthenticationMethod/ButtonLogOff';
 
-export const CalendarScreen = ({navegacion}) => {
+export const CalendarScreen = ({navegacion, route}) => {
+  const [day, setDay] = useState();
+  const {origin, destiny} = route.params;
+
   return (
     <View>
       <ButtonLogOff navegacion={navegacion} />
@@ -16,17 +19,21 @@ export const CalendarScreen = ({navegacion}) => {
           <Icon name="angle-left" size={40} color="#5c6ef8" />
         </TouchableHighlight>
       </ArrowBack>
-      <OriginToDestiny
-        CountryOrigin="MEX"
-        StateOrigin="Colima"
-        CountryDestiny="JAP"
-        StateDestiny="Tokyo"
-      />
+
+      <OriginToDestiny origin={origin} destiny={destiny} date={day} />
+
       <TitleScreen>Select Date</TitleScreen>
 
-      <CalendarPicker />
+      <CalendarPicker setDay={setDay} />
 
-      <NextButton onPress={() => navegacion.navigate('Passengers')}>
+      <NextButton
+        onPress={() =>
+          navegacion.navigate('Passengers', {
+            origin: origin,
+            destiny: destiny,
+            date: day,
+          })
+        }>
         <NextText>Next</NextText>
       </NextButton>
     </View>

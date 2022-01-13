@@ -2,16 +2,16 @@ import React from 'react';
 
 import {TitleScreen, NextButton, NextText, ViewMain} from './styled';
 import {OriginToDestiny} from '../OriginToDestiny';
-import {ButtonLogOff} from '../../AutthenticationMethod/ButtonLogOff';
 
-export const ConfirmationScreen = ({navegacion}) => {
+export const ConfirmationScreen = ({route, navegacion}) => {
+  const {origin, destiny, date, passengers} = route.params;
   return (
     <ViewMain>
       <OriginToDestiny
-        CountryOrigin="MEX"
-        StateOrigin="Colima"
-        CountryDestiny="JAP"
-        StateDestiny="Tokyo"
+        origin={origin}
+        destiny={destiny}
+        date={date}
+        passengers={passengers}
       />
       <TitleScreen>Your Request{'\n'}was recieved.</TitleScreen>
 

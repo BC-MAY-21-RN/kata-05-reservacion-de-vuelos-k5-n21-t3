@@ -74,4 +74,3 @@ Aquí se describen los pasos necesarios para ejecutar y probar este proyecto
 
 Recursos
 Para apoyo de tus actividades utiliza esta lista de recursos recomendados
-

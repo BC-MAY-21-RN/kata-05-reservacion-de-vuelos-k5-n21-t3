@@ -28,46 +28,6 @@ export const FlightScreen = ({navegacion}) => {
           DateFlight="September 3, 2020"
           PassengersNumber="2"
         />
-        <OriginToDestiny
-          CountryOrigin="MEX"
-          StateOrigin="Colima"
-          CountryDestiny="JAP"
-          StateDestiny="Tokyo"
-          DateFlight="September 3, 2020"
-          PassengersNumber="2 "
-        />
-        <OriginToDestiny
-          CountryOrigin="MEX"
-          StateOrigin="Colima"
-          CountryDestiny="JAP"
-          StateDestiny="Tokyo"
-          DateFlight="September 3, 2020"
-          PassengersNumber="2 "
-        />
-        <OriginToDestiny
-          CountryOrigin="MEX"
-          StateOrigin="Colima"
-          CountryDestiny="JAP"
-          StateDestiny="Tokyo"
-          DateFlight="September 3, 2020"
-          PassengersNumber="2 "
-        />
-        <OriginToDestiny
-          CountryOrigin="MEX"
-          StateOrigin="Colima"
-          CountryDestiny="JAP"
-          StateDestiny="Tokyo"
-          DateFlight="September 3, 2020"
-          PassengersNumber="2 "
-        />
-        <OriginToDestiny
-          CountryOrigin="MEX"
-          StateOrigin="Colima"
-          CountryDestiny="JAP"
-          StateDestiny="Tokyo"
-          DateFlight="September 3, 2020"
-          PassengersNumber="2 "
-        />
       </ScrollView>
       <PlusButton>
         <TouchableHighlight onPress={() => navegacion.navigate('Origin')}>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text} from 'react-native';
 import {
   FlightsTopContainer,
@@ -13,7 +13,7 @@ import {
 } from './styled';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
-export const OriginToDestiny = props => {
+export const OriginToDestiny = ({origin, destiny, date, passengers}) => {
   return (
     <View>
       <FlightsTopContainer>
@@ -21,20 +21,19 @@ export const OriginToDestiny = props => {
           <Icon name="plane" size={20} color="#5c6ef8" />
         </Plane>
         <View>
-          <CountryOrigin>{props.CountryOrigin}</CountryOrigin>
-          <StateOrigin>{props.StateOrigin}</StateOrigin>
+          <CountryOrigin>{origin}</CountryOrigin>
+          {/*<StateOrigin></StateOrigin>*/}
         </View>
 
         <View>
-          <CountryDestiny>{props.CountryDestiny}</CountryDestiny>
-          <StateDestiny>{props.StateDestiny}</StateDestiny>
+          <CountryDestiny>{destiny}</CountryDestiny>
+          {/*<StateDestiny></StateDestiny>*/}
         </View>
       </FlightsTopContainer>
-
       <DatePassengersContainer>
-        <DateFlight>{props.DateFlight}</DateFlight>
+        <DateFlight>{date}</DateFlight>
         <PassengersNumber>
-          {props.PassengersNumber} <Text> Passengers</Text>
+          <Text> {passengers} Passengers</Text>
         </PassengersNumber>
       </DatePassengersContainer>
     </View>

@@ -1,7 +1,7 @@
 import React from 'react';
 import {View} from 'react-native';
 import {Calendar} from 'react-native-calendars';
-export const CalendarPicker = () => {
+export const CalendarPicker = ({setDay}) => {
   return (
     <View>
       <Calendar
@@ -32,6 +32,7 @@ export const CalendarPicker = () => {
           textDayHeaderFontSize: 16,
         }}
         onDayPress={day => {
+          setDay(day['dateString']);
           console.log(day);
         }}
       />
