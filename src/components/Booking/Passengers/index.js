@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, TouchableHighlight} from 'react-native';
 import {
   TitleScreen,
@@ -12,7 +12,9 @@ import {OriginToDestiny} from '../OriginToDestiny';
 import {PassengersPicker} from './PassengersPicker';
 import {ButtonLogOff} from '../../AutthenticationMethod/ButtonLogOff';
 
-export const PassengersScreen = ({navegacion}) => {
+export const PassengersScreen = ({route, navegacion}) => {
+  const [selectedPassenger, setSelectedPassenger] = useState();
+  const {origin, destiny, date} = route.params;
   return (
     <View>
       <ButtonLogOff navegacion={navegacion} />
@@ -23,17 +25,27 @@ export const PassengersScreen = ({navegacion}) => {
         </TouchableHighlight>
       </ArrowBack>
       <OriginToDestiny
-        CountryOrigin="MEX"
-        StateOrigin="Colima"
-        CountryDestiny="JAP"
-        StateDestiny="Tokyo"
+        origin={origin}
+        destiny={destiny}
+        date={date}
+        passengers={selectedPassenger}
       />
       <TitleScreen>How many{'\n'}passengers?</TitleScreen>
       <Container>
-        <PassengersPicker />
+        <PassengersPicker
+          selectedPassenger={selectedPassenger}
+          setSelectedPassenger={setSelectedPassenger}
+        />
       </Container>
-
-      <NextButton onPress={() => navegacion.navigate('Confirmation')}>
+      <NextButton
+        onPress={() =>
+          navegacion.navigate('Confirmation', {
+            destiny: destiny,
+            origin: origin,
+            date: date,
+            passengers: selectedPassenger,
+          })
+        }>
         <NextText>Next</NextText>
       </NextButton>
     </View>

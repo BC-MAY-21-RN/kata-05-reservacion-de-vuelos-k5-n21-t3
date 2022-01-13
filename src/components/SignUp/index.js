@@ -15,7 +15,7 @@ import {
 } from './styled';
 import {CustomCheckBox} from './checkBoxTemplate';
 import {Link} from '@react-navigation/native';
-import {AuthenticationMethod} from '../AutthenticationMethod';
+//import {AuthenticationMethod} from '../AutthenticationMethod';
 import {CreateUser} from '../AutthenticationMethod/CreateUser';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 

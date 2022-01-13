@@ -1,20 +1,20 @@
-import React from 'react';
-import {View, TouchableHighlight, Button} from 'react-native';
+import React, {useState} from 'react';
+import {View, TouchableHighlight, Text} from 'react-native';
 import {
   Container,
-  CustomInput,
   TitleScreen,
   NextButton,
   NextText,
   ArrowBack,
-  LogOffButton,
 } from './styled';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {PickerData} from '../../Picker';
-import {LogOff} from '../../AutthenticationMethod/LogOff';
+//import {LogOff} from '../../AutthenticationMethod/LogOff';
 import {ButtonLogOff} from '../../AutthenticationMethod/ButtonLogOff';
+import {OriginToDestiny} from '../OriginToDestiny';
 
-export const OriginScreen = ({navegacion}) => {
+export const OriginScreen = ({route, navegacion}) => {
+  const [selectedCountry, setSelectedCountry] = useState('');
   return (
     <View>
       <ButtonLogOff navegacion={navegacion} />
@@ -25,13 +25,24 @@ export const OriginScreen = ({navegacion}) => {
         </TouchableHighlight>
       </ArrowBack>
 
+      <OriginToDestiny origin={selectedCountry} />
+
+      {/*Test para ver que si jala la variable<Text>{selectedCountry}</Text>*/}
       <TitleScreen>Where are you {'\n'}now?</TitleScreen>
 
       <Container>
-        <PickerData />
+        <PickerData
+          selectedCountry={selectedCountry}
+          setSelectedCountry={setSelectedCountry}
+        />
       </Container>
 
-      <NextButton onPress={() => navegacion.navigate('Destiny')}>
+      <NextButton
+        onPress={() =>
+          navegacion.navigate('Destiny', {
+            origin: selectedCountry,
+          })
+        }>
         <NextText>Next</NextText>
       </NextButton>
     </View>
