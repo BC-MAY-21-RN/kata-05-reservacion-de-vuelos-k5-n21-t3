@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {CheckBox, Icon} from 'react-native-elements';
+import {CheckBox} from 'react-native-elements';
 
 export const CustomCheckBox = ({Title}) => {
   const [state, setState] = useState(false);

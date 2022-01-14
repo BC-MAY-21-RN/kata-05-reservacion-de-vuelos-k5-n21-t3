@@ -3,9 +3,7 @@ import {View, Text} from 'react-native';
 import {
   FlightsTopContainer,
   CountryOrigin,
-  StateOrigin,
   CountryDestiny,
-  StateDestiny,
   Plane,
   DatePassengersContainer,
   DateFlight,

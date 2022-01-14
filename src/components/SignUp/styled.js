@@ -7,6 +7,11 @@ export const CustomInput = styled.TextInput`
   margin: auto;
   margin-bottom: 20px;
 `;
+export const Eye = styled.View`
+  position: absolute;
+  right: -5px;
+  top: 120;
+`;
 
 export const TittleLogin = styled.Text`
   margin-top: 30px;
@@ -30,7 +35,7 @@ export const TextMini = styled.Text`
 
 export const Container = styled.View`
   aling-content: center;
-  margin: 10px;
+  margin: 30px;
 `;
 
 export const LoginButton = styled.TouchableOpacity`
@@ -73,4 +78,3 @@ export const ImageGoogle = styled.Image`
 export const CheckBoxView = styled.View`
   padding-left: 30;
 `;
-

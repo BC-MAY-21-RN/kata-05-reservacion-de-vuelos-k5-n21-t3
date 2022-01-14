@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, TouchableHighlight} from 'react-native';
+import {View, TouchableHighlight, StyleSheet} from 'react-native';
 import {
   Container,
   CustomInput,
@@ -38,6 +38,8 @@ export const DestinyScreen = ({route, navegacion}) => {
       </Container>
 
       <NextButton
+        disabled={selectedCountry ? false : true}
+        style={selectedCountry ? styles.loginEnabled : styles.loginDisabled}
         onPress={() =>
           navegacion.navigate('Calendar', {
             destiny: selectedCountry,
@@ -49,3 +51,8 @@ export const DestinyScreen = ({route, navegacion}) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  loginEnabled: {backgroundColor: '#5c6ef8'},
+  loginDisabled: {backgroundColor: '#c1c1c1'},
+});

@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, TouchableHighlight} from 'react-native';
+import {View, TouchableHighlight, StyleSheet} from 'react-native';
 import {
   TitleScreen,
   NextButton,
@@ -38,6 +38,8 @@ export const PassengersScreen = ({route, navegacion}) => {
         />
       </Container>
       <NextButton
+        disabled={selectedPassenger ? false : true}
+        style={selectedPassenger ? styles.loginEnabled : styles.loginDisabled}
         onPress={() =>
           navegacion.navigate('Confirmation', {
             destiny: destiny,
@@ -51,3 +53,8 @@ export const PassengersScreen = ({route, navegacion}) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  loginEnabled: {backgroundColor: '#5c6ef8'},
+  loginDisabled: {backgroundColor: '#c1c1c1'},
+});

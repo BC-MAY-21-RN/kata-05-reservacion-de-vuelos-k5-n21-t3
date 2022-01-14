@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, TouchableHighlight, Text} from 'react-native';
+import {View, TouchableHighlight, StyleSheet} from 'react-native';
 import {
   Container,
   TitleScreen,
@@ -14,7 +14,7 @@ import {ButtonLogOff} from '../../AutthenticationMethod/ButtonLogOff';
 import {OriginToDestiny} from '../OriginToDestiny';
 
 export const OriginScreen = ({route, navegacion}) => {
-  const [selectedCountry, setSelectedCountry] = useState('');
+  const [selectedCountry, setSelectedCountry] = useState(false);
   return (
     <View>
       <ButtonLogOff navegacion={navegacion} />
@@ -38,6 +38,8 @@ export const OriginScreen = ({route, navegacion}) => {
       </Container>
 
       <NextButton
+        disabled={selectedCountry ? false : true}
+        style={selectedCountry ? styles.loginEnabled : styles.loginDisabled}
         onPress={() =>
           navegacion.navigate('Destiny', {
             origin: selectedCountry,
@@ -48,3 +50,8 @@ export const OriginScreen = ({route, navegacion}) => {
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  loginEnabled: {backgroundColor: '#5c6ef8'},
+  loginDisabled: {backgroundColor: '#c1c1c1'},
+});

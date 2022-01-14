@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, TouchableHighlight} from 'react-native';
+import {View, TouchableHighlight, StyleSheet} from 'react-native';
 import {TitleScreen, NextButton, NextText, ArrowBack} from './styled';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {OriginToDestiny} from '../OriginToDestiny';
@@ -27,6 +27,8 @@ export const CalendarScreen = ({navegacion, route}) => {
       <CalendarPicker setDay={setDay} />
 
       <NextButton
+        disabled={day ? false : true}
+        style={day ? styles.loginEnabled : styles.loginDisabled}
         onPress={() =>
           navegacion.navigate('Passengers', {
             origin: origin,
@@ -39,3 +41,7 @@ export const CalendarScreen = ({navegacion, route}) => {
     </View>
   );
 };
+const styles = StyleSheet.create({
+  loginEnabled: {backgroundColor: '#5c6ef8'},
+  loginDisabled: {backgroundColor: '#c1c1c1'},
+});

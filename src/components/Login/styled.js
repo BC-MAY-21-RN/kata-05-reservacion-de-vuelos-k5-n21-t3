@@ -13,6 +13,11 @@ export const CustomInput = styled.TextInput`
   margin: auto;
   margin-bottom: 20px;
 `;
+export const Eye = styled.View`
+  position: absolute;
+  right: -5px;
+  top: 120;
+`;
 
 export const TittleLogin = styled.Text`
   margin-top: 50px;
