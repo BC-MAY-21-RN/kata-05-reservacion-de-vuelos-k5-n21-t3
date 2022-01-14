@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, ScrollView} from 'react-native';
+import {StyleSheet, ScrollView, TouchableHighlight} from 'react-native';
 import {
   Container,
   CustomInput,
@@ -12,7 +12,9 @@ import {
   TextSeparator,
   ImageGoogle,
   CheckBoxView,
+  Eye,
 } from './styled';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 import {CustomCheckBox} from './checkBoxTemplate';
 import {Link} from '@react-navigation/native';
 //import {AuthenticationMethod} from '../AutthenticationMethod';
@@ -25,6 +27,9 @@ GoogleSignin.configure({
 });
 
 export const SignUpScreen = ({navegacion}) => {
+  const [emailFullInput, setEmailFullInput] = useState(false);
+  const [passwordFullInput, setPasswordFullInput] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -47,13 +52,35 @@ export const SignUpScreen = ({navegacion}) => {
         <TextCustom>Email *</TextCustom>
         <CustomInput
           placeholder="Put your email. ej: @gmail.com, @outlook.com"
-          onChangeText={email => setEmail(email)}
+          onChangeText={email => {
+            setEmail(email);
+            setEmailFullInput(true);
+          }}
         />
         <TextCustom>Password *</TextCustom>
         <CustomInput
           placeholder="Top secret password"
-          onChangeText={password => setPassword(password)}
+          password={true}
+          onChangeText={password => {
+            setPassword(password);
+            setPasswordFullInput(true);
+          }}
+          secureTextEntry={!showPassword}
         />
+
+        <Eye>
+          <TouchableHighlight
+            onPress={() => {
+              setShowPassword(!showPassword);
+              console.log(showPassword);
+            }}>
+            <Icon
+              name={showPassword ? 'eye-slash' : 'eye'}
+              size={20}
+              color="#C1C1C1"
+            />
+          </TouchableHighlight>
+        </Eye>
         <TextMini>
           Use 8 or more characters with a mix of letters, numbers and symbols
         </TextMini>
@@ -64,6 +91,12 @@ export const SignUpScreen = ({navegacion}) => {
       </CheckBoxView>
 
       <LoginButton
+        disabled={emailFullInput && passwordFullInput ? false : true}
+        style={
+          emailFullInput && passwordFullInput
+            ? styles.loginEnabled
+            : styles.loginDisabled
+        }
         onPress={() => {
           setLoading(true);
           setLoading(CreateUser(email, password, navegacion));
@@ -75,6 +108,12 @@ export const SignUpScreen = ({navegacion}) => {
       <TextSeparator>Or</TextSeparator>
 
       <LoginButton
+        disabled={emailFullInput && passwordFullInput ? false : true}
+        style={
+          emailFullInput && passwordFullInput
+            ? styles.loginEnabled
+            : styles.loginDisabled
+        }
         onPress={() =>
           onGoogleButtonPress().then(() =>
             console.log('Signed in with Google!'),
@@ -100,4 +139,6 @@ export const SignUpScreen = ({navegacion}) => {
 
 const styles = StyleSheet.create({
   underline: {textDecorationLine: 'underline'},
+  loginEnabled: {backgroundColor: '#5c6ef8'},
+  loginDisabled: {backgroundColor: '#c1c1c1'},
 });
