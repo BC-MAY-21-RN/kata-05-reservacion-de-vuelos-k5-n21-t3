@@ -1,10 +1,9 @@
-BrightCoders Logo
-Reservación de Vuelos
-Cover
+Calificación Code Climate &nbsp; <a href="https://codeclimate.com/github/BC-MAY-21-RN/kata-05-reservacion-de-vuelos-k5-n21-t3/maintainability"><img src="https://api.codeclimate.com/v1/badges/16da4cb70024fce14671/maintainability" /></a>
 
-Photo by Suhyeon Choi on Unsplash
+# Reservación de Vuelos
 
-Pre-requisitos
+## Pre-requisitos
+
 React Native
 Instalar el entorno de desarrollo ⚠️ utiliza la opción React Native CLI Quickstart NO utilizar Expo
 Editor de texto
@@ -18,7 +17,7 @@ Instalar y configurar CodeClimate para analizar tu codigo y mejorar la calidad a
 Requerimientos funcionales
 La empresa ABC Corp requiere una App para que sus clientes puedan registrar las reservaciones de sus vuelos.
 
-La aplicación deberá:
+## La aplicación deberá:
 
 Permitir a los nuevos usuarios registrarse:
 

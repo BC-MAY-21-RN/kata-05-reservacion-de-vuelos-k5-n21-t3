@@ -8,6 +8,7 @@ import {
   DatePassengersContainer,
   DateFlight,
   PassengersNumber,
+  BlackLine,
 } from './styled';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
@@ -34,6 +35,7 @@ export const OriginToDestiny = ({origin, destiny, date, passengers}) => {
           <Text> {passengers} Passengers</Text>
         </PassengersNumber>
       </DatePassengersContainer>
+      <BlackLine></BlackLine>
     </View>
   );
 };

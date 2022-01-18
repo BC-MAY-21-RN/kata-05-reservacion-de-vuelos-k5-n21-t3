@@ -12,14 +12,13 @@ export const CalendarScreen = ({navegacion, route}) => {
 
   return (
     <View>
-      <ButtonLogOff navegacion={navegacion} />
-
       <ArrowBack>
         <TouchableHighlight onPress={() => navegacion.goBack()}>
           <Icon name="angle-left" size={40} color="#5c6ef8" />
         </TouchableHighlight>
       </ArrowBack>
 
+      <ButtonLogOff navegacion={navegacion} />
       <OriginToDestiny origin={origin} destiny={destiny} date={day} />
 
       <TitleScreen>Select Date</TitleScreen>

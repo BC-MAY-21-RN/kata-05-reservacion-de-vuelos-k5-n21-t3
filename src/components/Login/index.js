@@ -10,12 +10,21 @@ import {
   LoginText,
   TextQuestion,
   Eye,
+  TextSeparator,
+  ImageGoogle,
 } from './styled';
 import {Link} from '@react-navigation/native';
 //import {AuthenticationMethod} from '../AutthenticationMethod';
 //import {LoadingAnimation} from '../Animation/Loading';
 import {LoginUser} from '../AutthenticationMethod/LogInUser';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import auth from '@react-native-firebase/auth';
+
+GoogleSignin.configure({
+  webClientId:
+    '371992773976-3e25baika1uqn078iup4kfaujso12ko6.apps.googleusercontent.com',
+});
 
 export const LoginScreen = ({navegacion}) => {
   const [emailFullInput, setEmailFullInput] = useState(false);
@@ -24,6 +33,20 @@ export const LoginScreen = ({navegacion}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+
+  async function onGoogleButtonPress() {
+    // GoogleSignin.signOut();
+    // Get the users ID token
+    const {idToken} = await GoogleSignin.signIn();
+    console.log(idToken);
+
+    // Create a Google credential with the token
+    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+
+    // Sign-in the user with the credential
+    await auth().signInWithCredential(googleCredential),
+      navegacion.navigate('Flights');
+  }
 
   return (
     <View>
@@ -84,6 +107,20 @@ export const LoginScreen = ({navegacion}) => {
         }}>
         <LoginText>Login</LoginText>
       </LoginButton>
+
+      <TextSeparator>Or</TextSeparator>
+
+      <LoginButton
+        onPress={() =>
+          onGoogleButtonPress()
+            .then(() => console.log('Login in with Google!'))
+            .catch(error => console.log(error))
+        }>
+        <ImageGoogle source={require('../../library/Image/google.png')} />
+
+        <LoginText>Login with Google</LoginText>
+      </LoginButton>
+
       <TextQuestion>
         You dont have an account?{' '}
         <Link

@@ -16,7 +16,7 @@ export const CustomInput = styled.TextInput`
 export const Eye = styled.View`
   position: absolute;
   right: -5px;
-  top: 120;
+  top: 120px;
 `;
 
 export const TittleLogin = styled.Text`
@@ -67,6 +67,19 @@ export const LoginText = styled.Text`
   color: white;
   font-size: 18px;
   margin: auto;
+`;
+
+export const TextSeparator = styled.Text`
+  font-size: 15px;
+  margin: auto;
+  margin-top: -25px;
+`;
+
+export const ImageGoogle = styled.Image`
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  margin: 7px 1px 1px 25px;
 `;
 
 export const TextQuestion = styled.Text`

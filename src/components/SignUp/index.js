@@ -20,6 +20,7 @@ import {Link} from '@react-navigation/native';
 //import {AuthenticationMethod} from '../AutthenticationMethod';
 import {CreateUser} from '../AutthenticationMethod/CreateUser';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import auth from '@react-native-firebase/auth';
 
 GoogleSignin.configure({
   webClientId:
@@ -35,14 +36,16 @@ export const SignUpScreen = ({navegacion}) => {
   const [loading, setLoading] = useState(false);
 
   async function onGoogleButtonPress() {
+    // GoogleSignin.signOut();
     // Get the users ID token
     const {idToken} = await GoogleSignin.signIn();
+    console.log(idToken);
 
     // Create a Google credential with the token
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
 
     // Sign-in the user with the credential
-    return auth().signInWithCredential(googleCredential);
+    await auth().signInWithCredential(googleCredential);
   }
 
   return (
@@ -108,16 +111,10 @@ export const SignUpScreen = ({navegacion}) => {
       <TextSeparator>Or</TextSeparator>
 
       <LoginButton
-        disabled={emailFullInput && passwordFullInput ? false : true}
-        style={
-          emailFullInput && passwordFullInput
-            ? styles.loginEnabled
-            : styles.loginDisabled
-        }
         onPress={() =>
-          onGoogleButtonPress().then(() =>
-            console.log('Signed in with Google!'),
-          )
+          onGoogleButtonPress()
+            .then(() => console.log('Signed in with Google!'))
+            .catch(error => console.log(error))
         }>
         <ImageGoogle source={require('../../library/Image/google.png')} />
 
