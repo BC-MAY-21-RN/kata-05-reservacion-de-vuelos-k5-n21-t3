@@ -136,7 +136,7 @@ export const LoginScreen = ({navegacion}) => {
 };
 
 const styles = StyleSheet.create({
-  underline: {textDecorationLine: 'underline'},
+  underline: {textDecorationLine: 'underline', color: '#5c6ef8'},
   icon: {color: '#c1c1c1'},
   loginEnabled: {backgroundColor: '#5c6ef8'},
   loginDisabled: {backgroundColor: '#c1c1c1'},

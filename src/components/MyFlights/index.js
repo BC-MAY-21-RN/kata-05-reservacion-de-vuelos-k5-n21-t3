@@ -15,8 +15,22 @@ import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
 
 export const FlightScreen = ({navegacion}) => {
-  const [flights, setFligths] = useState(null);
-  //const [rtData, setRtData] = useState([]);
+  const [flights, setFligths] = useState([]);
+
+  /* METODO PARA RENDEREAR UNA SOLA VEZexport const getArrayFligths = (uid, setFligths) => {
+    firestore()
+      .collection('Flights')
+      // Filter results
+      .where('IdUser', '==', uid)
+      .get()
+      .then(async response => {
+        setFligths(response._docs);
+      });
+
+        useEffect(() => {
+    getArrayFligths(auth().currentUser.uid, setFligths);
+    //loadRTData()
+  }, []);
 
   const VuelosRender = item => {
     console.log(item);
@@ -32,28 +46,6 @@ export const FlightScreen = ({navegacion}) => {
     );
   };
 
-  const getArrayFligths = (uid, setFligths) => {
-    firestore()
-      .collection('Flights')
-      // Filter results
-      .where('IdUser', '==', uid)
-      .get()
-      .then(async response => {
-        setFligths(response._docs);
-      });
-  };
-
-  useEffect(() => {
-    getArrayFligths(auth().currentUser.uid, setFligths);
-    //loadRTData()
-  }, []);
-
-  return (
-    <ViewMain>
-      <TittleLogin>My Flights</TittleLogin>
-
-      <ButtonLogOff navegacion={navegacion} />
-
       {flights ? (
         <FlatList
           data={flights}
@@ -61,12 +53,59 @@ export const FlightScreen = ({navegacion}) => {
           keyExtractor={item => item._data}
         />
       ) : /* 
-        <FlatList
-          data={rtData}
-          renderItem={VuelosRTRender}
-          keyExtractor={item => item.key}
-        /> */
-      null}
+
+  };*/
+
+  //funcion para leer la coleccion y documentos en tiempo real
+  async function getArrayFligths(uid) {
+    const suscriber = firestore()
+      .collection('Flights')
+      .where('IdUser', '==', uid) //para asegurar que muestre lo correspondiente al usuario que se logeó
+      .onSnapshot(querySnapshot => {
+        const temporalFlights = []; // guardamos todo en un vector temporal
+
+        querySnapshot.forEach(documentSnapshot => {
+          temporalFlights.push({
+            ...documentSnapshot.data(),
+            key: documentSnapshot.id, //asignamos "id" como key para usarla en la flat list
+          });
+        });
+        setFligths(temporalFlights); //seteamos en flights el array temporal
+      });
+    return () => suscriber();
+  }
+
+  useEffect(() => {
+    // con esto le mandamos  el usuario logeado a la funcion que lee la coleccion y con ayuda del use effect la rendereamos despues de que ya cargó la screen
+    getArrayFligths(auth().currentUser.uid);
+  }, []);
+
+  const VuelosRender = item => {
+    //el componente de render para el flat list
+    console.log(item);
+    return (
+      <View>
+        <OriginToDestiny
+          origin={item.item.origin}
+          destiny={item.item.destiny}
+          date={item.item.date}
+          passengers={item.item.passengers}
+        />
+      </View>
+    );
+  };
+
+  return (
+    <ViewMain>
+      <TittleLogin>My Flights</TittleLogin>
+
+      <ButtonLogOff navegacion={navegacion} />
+
+      <FlatList
+        data={flights}
+        renderItem={VuelosRender}
+        keyExtractor={item => item.id}
+      />
 
       <PlusButton>
         <TouchableHighlight onPress={() => navegacion.navigate('Origin')}>

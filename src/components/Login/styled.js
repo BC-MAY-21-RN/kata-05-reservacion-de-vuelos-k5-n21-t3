@@ -7,7 +7,7 @@
 import styled from 'styled-components';
 
 export const CustomInput = styled.TextInput`
-  width: 350px;
+  width: 340px;
   border: black;
   height: 40px;
   margin: auto;
@@ -15,7 +15,7 @@ export const CustomInput = styled.TextInput`
 `;
 export const Eye = styled.View`
   position: absolute;
-  right: -5px;
+  right: -2px;
   top: 120px;
 `;
 
