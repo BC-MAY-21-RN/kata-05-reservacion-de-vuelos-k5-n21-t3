@@ -16,7 +16,7 @@ export const CustomInput = styled.TextInput`
 export const Eye = styled.View`
   position: absolute;
   right: -5px;
-  top: 120;
+  top: 120px;
 `;
 
 export const TittleLogin = styled.Text`

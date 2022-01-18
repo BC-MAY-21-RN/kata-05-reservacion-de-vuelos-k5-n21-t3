@@ -1,18 +1,27 @@
 {
   "project_info": {
     "project_number": "371992773976",
+    "firebase_url": "https://kata-05-reservacion-de-vuelos-default-rtdb.firebaseio.com",
     "project_id": "kata-05-reservacion-de-vuelos",
     "storage_bucket": "kata-05-reservacion-de-vuelos.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:371992773976:android:64cab2eff8024c92ec112d",
+        "mobilesdk_app_id": "1:371992773976:android:a828ad6761fed85dec112d",
         "android_client_info": {
           "package_name": "com.reservacionvuelos"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "371992773976-j9kefrba9501euj7rqspd1uiev8avsjt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.reservacionvuelos",
+            "certificate_hash": "09b3342e09b08c6d1d85f2b42082daed5c627983"
+          }
+        },
         {
           "client_id": "371992773976-3e25baika1uqn078iup4kfaujso12ko6.apps.googleusercontent.com",
           "client_type": 3

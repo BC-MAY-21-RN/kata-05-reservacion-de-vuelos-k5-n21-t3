@@ -6,6 +6,16 @@
 
 import styled from 'styled-components';
 
+export const LogOffButton = styled.TouchableOpacity`
+  margin-top: 30px;
+  background-color: #5c6ef8;
+  width: 80px;
+  border-radius: 10px;
+  padding: 10px;
+  position: absolute;
+  right: 31px;
+`;
+
 export const ArrowBack = styled.Text`
   margin-top: 30px;
   left: 31px;
@@ -32,7 +42,7 @@ export const NextButton = styled.TouchableOpacity`
   text-align: auto;
   border-radius: 10px;
   padding: 10px;
-  bottom: -30px;
+  bottom: -20px;
 `;
 
 export const NextText = styled.Text`
