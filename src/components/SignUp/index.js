@@ -30,7 +30,9 @@ GoogleSignin.configure({
 export const SignUpScreen = ({navegacion}) => {
   const [emailFullInput, setEmailFullInput] = useState(false);
   const [passwordFullInput, setPasswordFullInput] = useState(false);
+  const [userNameFullInput, setUserNameFullInput] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [userName, setUserName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
@@ -52,6 +54,14 @@ export const SignUpScreen = ({navegacion}) => {
     <ScrollView>
       <TittleLogin>Sign Up</TittleLogin>
       <Container>
+        <TextCustom>Please enter your name *</TextCustom>
+        <CustomInput
+          placeholder="Enter your name. ej: Shigeru Miyamoto"
+          onChangeText={userName => {
+            setUserName(userName);
+            setUserNameFullInput(true);
+          }}
+        />
         <TextCustom>Email *</TextCustom>
         <CustomInput
           placeholder="Put your email. ej: @gmail.com, @outlook.com"
@@ -94,9 +104,13 @@ export const SignUpScreen = ({navegacion}) => {
       </CheckBoxView>
 
       <LoginButton
-        disabled={emailFullInput && passwordFullInput ? false : true}
+        disabled={
+          emailFullInput && passwordFullInput && userNameFullInput
+            ? false
+            : true
+        }
         style={
-          emailFullInput && passwordFullInput
+          emailFullInput && passwordFullInput && userNameFullInput
             ? styles.loginEnabled
             : styles.loginDisabled
         }
@@ -135,7 +149,7 @@ export const SignUpScreen = ({navegacion}) => {
 };
 
 const styles = StyleSheet.create({
-  underline: {textDecorationLine: 'underline'},
+  underline: {textDecorationLine: 'underline', color: '#5c6ef8'},
   loginEnabled: {backgroundColor: '#5c6ef8'},
   loginDisabled: {backgroundColor: '#c1c1c1'},
 });

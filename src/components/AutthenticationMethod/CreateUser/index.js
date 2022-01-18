@@ -15,14 +15,12 @@ export const CreateUser = (email, password, navegacion) => {
       })
       .catch(error => {
         if (error.code === 'auth/email-already-in-use') {
-          Alert.alert('Great', 'This email is already in use', [
-            {text: 'Okey'},
-          ]);
+          Alert.alert('Ups!', 'This email is already in use', [{text: 'Okey'}]);
           console.log('That email address is already in use!');
         }
         if (error.code === 'auth/invalid-email') {
           Alert.alert(
-            'Great',
+            'Sorry!',
             'This email is invalid, please use a valid email',
             [{text: 'Okey'}],
           );

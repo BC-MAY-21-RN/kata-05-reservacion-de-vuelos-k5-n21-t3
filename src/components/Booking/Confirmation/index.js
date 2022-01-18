@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import firestore from '@react-native-firebase/firestore';
 
 import {TitleScreen, NextButton, NextText, ViewMain} from './styled';
@@ -8,11 +8,9 @@ import auth from '@react-native-firebase/auth';
 
 export const ConfirmationScreen = ({route, navegacion}) => {
   const {origin, destiny, date, passengers} = route.params;
-  //const [rtData, setRtData] = useState([]);
 
   const updateDataInFirebase = () => {
     //para agregar a la coleccion Flights de firebase nuevos vuelos
-
     firestore()
       .collection('Flights')
       .add({
@@ -27,25 +25,6 @@ export const ConfirmationScreen = ({route, navegacion}) => {
       });
   };
 
-  /* async function loadRTData(){
-
-    const subscriber = firestore().collection('Flights').onSnapshot(querySnapshot => {
-      const vuelos = []
-
-      querySnapshot.forEach(documentSnapshot => {
-        vuelos.push({
-          ...documentSnapshot,
-          key: documentSnapshot.id
-        })
-      })
-
-        setRTData(vuelos)
-
-    })
-    return () => subscriber ()
-
-  } */
-
   return (
     <ViewMain>
       <OriginToDestiny
@@ -55,13 +34,7 @@ export const ConfirmationScreen = ({route, navegacion}) => {
         passengers={passengers}
       />
       <TitleScreen>Your Request{'\n'}was recieved.</TitleScreen>
-      <NextButton
-        onPress={() => {
-          updateDataInFirebase(),
-            {
-              /*getArrayFligths(auth().currentUser.uid)*/
-            };
-        }}>
+      <NextButton onPress={() => updateDataInFirebase()}>
         <NextText>Finish</NextText>
       </NextButton>
     </ViewMain>
