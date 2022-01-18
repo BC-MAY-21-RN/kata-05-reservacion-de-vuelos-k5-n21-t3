@@ -1,43 +1,72 @@
 import React, {useState, useEffect} from 'react';
-import {ScrollView, TouchableHighlight} from 'react-native';
+import {
+  ScrollView,
+  TouchableHighlight,
+  Button,
+  Text,
+  View,
+  FlatList,
+} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {ButtonLogOff} from '../AutthenticationMethod/ButtonLogOff';
 import {OriginToDestiny} from '../Booking/OriginToDestiny';
 import {PlusButton, TittleLogin, ViewMain} from './styled';
 import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
 
 export const FlightScreen = ({navegacion}) => {
-  const [user, setUser] = useState(null);
   const [flights, setFligths] = useState(null);
+  //const [rtData, setRtData] = useState([]);
 
-  const getUser = () => {
-    auth().onAuthStateChanged(user => {
-      user ? console.log(user) : console.log('No existe');
-    });
-
-    // getArrayFligths(user.email);
+  const VuelosRender = item => {
+    console.log(item);
+    return (
+      <View>
+        <OriginToDestiny
+          origin={item.item._data.origin}
+          destiny={item.item._data.destiny}
+          date={item.item._data.date}
+          passengers={item.item._data.passengers}
+        />
+      </View>
+    );
   };
 
-  const getArrayFligths = email => {
+  const getArrayFligths = (uid, setFligths) => {
     firestore()
       .collection('Flights')
       // Filter results
-      .where('userEmail', '==', email)
+      .where('IdUser', '==', uid)
       .get()
-      .then(response => {
-        console.log(response);
-        setFligths(response);
+      .then(async response => {
+        setFligths(response._docs);
       });
   };
 
   useEffect(() => {
-    getUser();
+    getArrayFligths(auth().currentUser.uid, setFligths);
+    //loadRTData()
   }, []);
 
   return (
     <ViewMain>
       <TittleLogin>My Flights</TittleLogin>
+
       <ButtonLogOff navegacion={navegacion} />
+
+      {flights ? (
+        <FlatList
+          data={flights}
+          renderItem={VuelosRender}
+          keyExtractor={item => item._data}
+        />
+      ) : /* 
+        <FlatList
+          data={rtData}
+          renderItem={VuelosRTRender}
+          keyExtractor={item => item.key}
+        /> */
+      null}
 
       <PlusButton>
         <TouchableHighlight onPress={() => navegacion.navigate('Origin')}>

@@ -69,6 +69,19 @@ export const LoginText = styled.Text`
   margin: auto;
 `;
 
+export const TextSeparator = styled.Text`
+  font-size: 15px;
+  margin: auto;
+  margin-top: -25px;
+`;
+
+export const ImageGoogle = styled.Image`
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  margin: 7px 1px 1px 25px;
+`;
+
 export const TextQuestion = styled.Text`
   margin: auto;
   font-size: 15px;

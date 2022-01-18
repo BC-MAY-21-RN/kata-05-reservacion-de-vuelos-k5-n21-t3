@@ -75,3 +75,11 @@ export const PassengersNumber = styled.Text`
   font-size: 15px;
   text-align: right;
 `;
+
+export const BlackLine = styled.View`
+  width: 350px;
+  height: 1px;
+  background: black;
+  margin: auto;
+  margin-top: -22px;
+`;
