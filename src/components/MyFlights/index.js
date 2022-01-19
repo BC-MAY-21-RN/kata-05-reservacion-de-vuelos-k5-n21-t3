@@ -87,7 +87,9 @@ export const FlightScreen = ({navegacion}) => {
       <View>
         <OriginToDestiny
           origin={item.item.origin}
+          stateOrigin={item.item.stateOrigin}
           destiny={item.item.destiny}
+          stateDestiny={item.item.stateDestiny}
           date={item.item.date}
           passengers={item.item.passengers}
         />

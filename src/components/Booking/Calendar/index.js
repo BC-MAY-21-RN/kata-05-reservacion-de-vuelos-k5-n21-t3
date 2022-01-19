@@ -8,7 +8,7 @@ import {ButtonLogOff} from '../../AutthenticationMethod/ButtonLogOff';
 
 export const CalendarScreen = ({navegacion, route}) => {
   const [day, setDay] = useState();
-  const {origin, destiny} = route.params;
+  const {origin, stateOrigin, destiny, stateDestiny} = route.params;
 
   return (
     <View>
@@ -19,7 +19,13 @@ export const CalendarScreen = ({navegacion, route}) => {
       </ArrowBack>
 
       <ButtonLogOff navegacion={navegacion} />
-      <OriginToDestiny origin={origin} destiny={destiny} date={day} />
+      <OriginToDestiny
+        origin={origin}
+        destiny={destiny}
+        stateOrigin={stateOrigin}
+        stateDestiny={stateDestiny}
+        date={day}
+      />
 
       <TitleScreen>Select Date</TitleScreen>
 
@@ -31,7 +37,9 @@ export const CalendarScreen = ({navegacion, route}) => {
         onPress={() =>
           navegacion.navigate('Passengers', {
             origin: origin,
+            stateOrigin: stateOrigin,
             destiny: destiny,
+            stateDestiny: stateDestiny,
             date: day,
           })
         }>

@@ -1,10 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View} from 'react-native';
 import {Calendar} from 'react-native-calendars';
+
 export const CalendarPicker = ({setDay}) => {
   return (
     <View>
       <Calendar
+        minDate={new Date()}
         theme={{
           backgroundColor: '#5c6ef8',
           calendarBackground: '#ffffff',
@@ -33,7 +35,6 @@ export const CalendarPicker = ({setDay}) => {
         }}
         onDayPress={day => {
           setDay(day['dateString']);
-          console.log(day);
         }}
       />
     </View>

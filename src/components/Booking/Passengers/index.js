@@ -14,7 +14,7 @@ import {ButtonLogOff} from '../../AutthenticationMethod/ButtonLogOff';
 
 export const PassengersScreen = ({route, navegacion}) => {
   const [selectedPassenger, setSelectedPassenger] = useState();
-  const {origin, destiny, date} = route.params;
+  const {origin, stateOrigin, destiny, stateDestiny, date} = route.params;
   return (
     <View>
       <ArrowBack>
@@ -25,7 +25,9 @@ export const PassengersScreen = ({route, navegacion}) => {
       <ButtonLogOff navegacion={navegacion} />
       <OriginToDestiny
         origin={origin}
+        stateOrigin={stateOrigin}
         destiny={destiny}
+        stateDestiny={stateDestiny}
         date={date}
         passengers={selectedPassenger}
       />
@@ -41,8 +43,10 @@ export const PassengersScreen = ({route, navegacion}) => {
         style={selectedPassenger ? styles.loginEnabled : styles.loginDisabled}
         onPress={() =>
           navegacion.navigate('Confirmation', {
-            destiny: destiny,
             origin: origin,
+            stateOrigin: stateOrigin,
+            destiny: destiny,
+            stateDestiny: stateDestiny,
             date: date,
             passengers: selectedPassenger,
           })

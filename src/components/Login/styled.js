@@ -28,11 +28,6 @@ export const TittleLogin = styled.Text`
   margin-bottom: 40px;
   position: relative;
 `;
-export const LogedUser = styled.Text`
-  left: 31px;
-  position: absolute;
-  top: 75px;
-`;
 
 export const TextCustom = styled.Text`
   font-size: 15px;
