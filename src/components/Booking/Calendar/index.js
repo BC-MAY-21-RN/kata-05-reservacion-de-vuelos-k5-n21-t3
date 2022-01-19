@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import {OriginToDestiny} from '../OriginToDestiny';
 import {CalendarPicker} from './CalendarPicker';
 import {ButtonLogOff} from '../../AutthenticationMethod/ButtonLogOff';
+import {BackArrow} from '../ArrowBack';
 
 export const CalendarScreen = ({navegacion, route}) => {
   const [day, setDay] = useState();
@@ -12,11 +13,12 @@ export const CalendarScreen = ({navegacion, route}) => {
 
   return (
     <View>
-      <ArrowBack>
+      <BackArrow navegacion={navegacion} />
+      {/*    <ArrowBack>
         <TouchableHighlight onPress={() => navegacion.goBack()}>
           <Icon name="angle-left" size={40} color="#5c6ef8" />
         </TouchableHighlight>
-      </ArrowBack>
+      </ArrowBack> */}
 
       <ButtonLogOff navegacion={navegacion} />
       <OriginToDestiny

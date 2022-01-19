@@ -11,6 +11,7 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import {PickerData} from '../../Picker';
 import {ButtonLogOff} from '../../AutthenticationMethod/ButtonLogOff';
 import {OriginToDestiny} from '../OriginToDestiny';
+import {BackArrow} from '../ArrowBack';
 
 export const OriginScreen = ({route, navegacion}) => {
   const [selectedCountry, setSelectedCountry] = useState(false);
@@ -19,12 +20,12 @@ export const OriginScreen = ({route, navegacion}) => {
   return (
     <View>
       <ButtonLogOff navegacion={navegacion} />
-
-      <ArrowBack>
+      <BackArrow navegacion={navegacion} />
+      {/*  <ArrowBack>
         <TouchableHighlight onPress={() => navegacion.goBack()}>
           <Icon name="angle-left" size={40} color="#5C6EF8" />
         </TouchableHighlight>
-      </ArrowBack>
+      </ArrowBack> */}
 
       <OriginToDestiny origin={selectedCountry} stateOrigin={selectedState} />
 

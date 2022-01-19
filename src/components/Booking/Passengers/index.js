@@ -11,17 +11,19 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import {OriginToDestiny} from '../OriginToDestiny';
 import {PassengersPicker} from './PassengersPicker';
 import {ButtonLogOff} from '../../AutthenticationMethod/ButtonLogOff';
+import {BackArrow} from '../ArrowBack';
 
 export const PassengersScreen = ({route, navegacion}) => {
   const [selectedPassenger, setSelectedPassenger] = useState();
   const {origin, stateOrigin, destiny, stateDestiny, date} = route.params;
   return (
     <View>
-      <ArrowBack>
+      <BackArrow navegacion={navegacion} />
+      {/*  <ArrowBack>
         <TouchableHighlight onPress={() => navegacion.goBack()}>
           <Icon name="angle-left" size={40} color="#5c6ef8" />
         </TouchableHighlight>
-      </ArrowBack>
+      </ArrowBack> */}
       <ButtonLogOff navegacion={navegacion} />
       <OriginToDestiny
         origin={origin}

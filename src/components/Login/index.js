@@ -8,7 +8,7 @@ import {
   TextMini,
   LoginButton,
   LoginText,
-  TextQuestion,
+  TextQuestionLogin,
   Eye,
   TextSeparator,
   ImageGoogle,
@@ -18,13 +18,15 @@ import {Link} from '@react-navigation/native';
 //import {LoadingAnimation} from '../Animation/Loading';
 import {LoginUser} from '../AutthenticationMethod/LogInUser';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import {GoogleSignin} from '@react-native-google-signin/google-signin';
+/* import {GoogleSignin} from '@react-native-google-signin/google-signin'; */
 import auth from '@react-native-firebase/auth';
+import {GoogleButton} from '../AutthenticationMethod/GoogleButton';
+import {ShowUnshowEye} from '../ShowUnshowEye';
 
-GoogleSignin.configure({
+/* GoogleSignin.configure({
   webClientId:
     '371992773976-3e25baika1uqn078iup4kfaujso12ko6.apps.googleusercontent.com',
-});
+}); */
 
 export const LoginScreen = ({navegacion}) => {
   const [emailFullInput, setEmailFullInput] = useState(false);
@@ -34,7 +36,7 @@ export const LoginScreen = ({navegacion}) => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
 
-  async function onGoogleButtonPress() {
+  /*   async function onGoogleButtonPress() {
     // GoogleSignin.signOut();
     // Get the users ID token
     const {idToken} = await GoogleSignin.signIn();
@@ -46,7 +48,7 @@ export const LoginScreen = ({navegacion}) => {
     // Sign-in the user with the credential
     await auth().signInWithCredential(googleCredential),
       navegacion.navigate('Flights');
-  }
+  } */
 
   return (
     <View>
@@ -75,7 +77,11 @@ export const LoginScreen = ({navegacion}) => {
           secureTextEntry={!showPassword}
         />
 
-        <Eye>
+        <ShowUnshowEye
+          setShowPassword={setShowPassword}
+          showPassword={showPassword}
+        />
+        {/*       <Eye>
           <TouchableHighlight
             onPress={() => {
               setShowPassword(!showPassword);
@@ -87,7 +93,7 @@ export const LoginScreen = ({navegacion}) => {
               color="#C1C1C1"
             />
           </TouchableHighlight>
-        </Eye>
+        </Eye> */}
 
         <TextMini>
           Use 8 or more characters with a mix of letters, numbers and symbols
@@ -110,7 +116,8 @@ export const LoginScreen = ({navegacion}) => {
 
       <TextSeparator>Or</TextSeparator>
 
-      <LoginButton
+      <GoogleButton navegacion={navegacion} />
+      {/*     <LoginButton
         onPress={() =>
           onGoogleButtonPress()
             .then(() => console.log('Login in with Google!'))
@@ -119,9 +126,9 @@ export const LoginScreen = ({navegacion}) => {
         <ImageGoogle source={require('../../library/Image/google.png')} />
 
         <LoginText>Login with Google</LoginText>
-      </LoginButton>
+      </LoginButton> */}
 
-      <TextQuestion>
+      <TextQuestionLogin>
         You dont have an account?{' '}
         <Link
           style={styles.underline}
@@ -129,7 +136,7 @@ export const LoginScreen = ({navegacion}) => {
           {' '}
           Sign Up{' '}
         </Link>
-      </TextQuestion>
+      </TextQuestionLogin>
       {/*  {loading == undefined ? <LoadingAnimation /> : null}*/}
     </View>
   );

@@ -4,6 +4,7 @@ import firestore from '@react-native-firebase/firestore';
 import {TitleScreen, NextButton, NextText, ViewMain} from './styled';
 import {OriginToDestiny} from '../OriginToDestiny';
 import auth from '@react-native-firebase/auth';
+import {BackArrow} from '../ArrowBack';
 //import getArrayFligths from '../../MyFlights/getVuelos';
 
 export const ConfirmationScreen = ({route, navegacion}) => {

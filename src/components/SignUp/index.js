@@ -8,24 +8,26 @@ import {
   TextMini,
   LoginButton,
   LoginText,
-  TextQuestion,
+  TextQuestionSignUp,
   TextSeparator,
-  ImageGoogle,
   CheckBoxView,
   Eye,
+  EyePosition,
 } from './styled';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {CustomCheckBox} from './checkBoxTemplate';
 import {Link} from '@react-navigation/native';
 //import {AuthenticationMethod} from '../AutthenticationMethod';
 import {CreateUser} from '../AutthenticationMethod/CreateUser';
-import {GoogleSignin} from '@react-native-google-signin/google-signin';
+/* import {GoogleSignin} from '@react-native-google-signin/google-signin'; */
 import auth from '@react-native-firebase/auth';
+import {GoogleButton} from '../AutthenticationMethod/GoogleButton';
+import {ShowUnshowEye} from '../ShowUnshowEye';
 
-GoogleSignin.configure({
+/* GoogleSignin.configure({
   webClientId:
     '371992773976-3e25baika1uqn078iup4kfaujso12ko6.apps.googleusercontent.com',
-});
+}); */
 
 export const SignUpScreen = ({navegacion}) => {
   const [emailFullInput, setEmailFullInput] = useState(false);
@@ -37,7 +39,7 @@ export const SignUpScreen = ({navegacion}) => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
 
-  async function onGoogleButtonPress() {
+  /*   async function onGoogleButtonPress() {
     // GoogleSignin.signOut();
     // Get the users ID token
     const {idToken} = await GoogleSignin.signIn();
@@ -49,7 +51,7 @@ export const SignUpScreen = ({navegacion}) => {
     // Sign-in the user with the credential
     await auth().signInWithCredential(googleCredential);
   }
-
+ */
   return (
     <ScrollView>
       <TittleLogin>Sign Up</TittleLogin>
@@ -63,6 +65,7 @@ export const SignUpScreen = ({navegacion}) => {
           }}
         />
         <TextCustom>Email *</TextCustom>
+
         <CustomInput
           placeholder="Put your email. ej: @gmail.com, @outlook.com"
           onChangeText={email => {
@@ -70,7 +73,9 @@ export const SignUpScreen = ({navegacion}) => {
             setEmailFullInput(true);
           }}
         />
+
         <TextCustom>Password *</TextCustom>
+
         <CustomInput
           placeholder="Top secret password"
           password={true}
@@ -81,19 +86,29 @@ export const SignUpScreen = ({navegacion}) => {
           secureTextEntry={!showPassword}
         />
 
-        <Eye>
+        <EyePosition>
+          {' '}
+          {/* we made this in order to position the eye icon button correctly in this screen */}
+          <ShowUnshowEye
+            setShowPassword={setShowPassword}
+            showPassword={showPassword}
+          />
+        </EyePosition>
+
+        {/*     <Eye>
           <TouchableHighlight
             onPress={() => {
               setShowPassword(!showPassword);
               console.log(showPassword);
             }}>
+
             <Icon
               name={showPassword ? 'eye-slash' : 'eye'}
               size={20}
               color="#C1C1C1"
             />
           </TouchableHighlight>
-        </Eye>
+        </Eye> */}
         <TextMini>
           Use 8 or more characters with a mix of letters, numbers and symbols
         </TextMini>
@@ -124,7 +139,8 @@ export const SignUpScreen = ({navegacion}) => {
 
       <TextSeparator>Or</TextSeparator>
 
-      <LoginButton
+      <GoogleButton navegacion={navegacion} />
+      {/*    <LoginButton
         onPress={() =>
           onGoogleButtonPress()
             .then(() => console.log('Signed in with Google!'))
@@ -133,9 +149,9 @@ export const SignUpScreen = ({navegacion}) => {
         <ImageGoogle source={require('../../library/Image/google.png')} />
 
         <LoginText>Sign Up with Google</LoginText>
-      </LoginButton>
+      </LoginButton> */}
 
-      <TextQuestion>
+      <TextQuestionSignUp>
         {'Already have an account? '}
         <Link
           style={styles.underline}
@@ -143,7 +159,7 @@ export const SignUpScreen = ({navegacion}) => {
           {' '}
           Login{' '}
         </Link>
-      </TextQuestion>
+      </TextQuestionSignUp>
     </ScrollView>
   );
 };

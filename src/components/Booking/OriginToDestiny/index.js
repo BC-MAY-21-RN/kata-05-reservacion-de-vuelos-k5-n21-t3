@@ -12,6 +12,7 @@ import {
   BlackLine,
 } from './styled';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import {BackArrow} from '../ArrowBack';
 
 export const OriginToDestiny = ({
   origin,
