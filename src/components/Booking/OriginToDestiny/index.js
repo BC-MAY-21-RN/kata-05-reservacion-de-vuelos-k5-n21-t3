@@ -3,6 +3,7 @@ import {View, Text} from 'react-native';
 import {
   FlightsTopContainer,
   CountryOrigin,
+  StateOrigin,
   CountryDestiny,
   Plane,
   DatePassengersContainer,
@@ -11,8 +12,16 @@ import {
   BlackLine,
 } from './styled';
 import Icon from 'react-native-vector-icons/FontAwesome5';
+import {BackArrow} from '../ArrowBack';
 
-export const OriginToDestiny = ({origin, destiny, date, passengers}) => {
+export const OriginToDestiny = ({
+  origin,
+  destiny,
+  date,
+  passengers,
+  stateOrigin,
+  stateDestiny,
+}) => {
   return (
     <View>
       <FlightsTopContainer>
@@ -21,12 +30,13 @@ export const OriginToDestiny = ({origin, destiny, date, passengers}) => {
         </Plane>
         <View>
           <CountryOrigin>{origin}</CountryOrigin>
-          {/*<StateOrigin></StateOrigin>*/}
+
+          <StateOrigin>{stateOrigin}</StateOrigin>
         </View>
 
         <View>
           <CountryDestiny>{destiny}</CountryDestiny>
-          {/*<StateDestiny></StateDestiny>*/}
+          <StateOrigin>{stateDestiny}</StateOrigin>
         </View>
       </FlightsTopContainer>
       <DatePassengersContainer>
@@ -35,6 +45,7 @@ export const OriginToDestiny = ({origin, destiny, date, passengers}) => {
           <Text> {passengers} Passengers</Text>
         </PassengersNumber>
       </DatePassengersContainer>
+
       <BlackLine></BlackLine>
     </View>
   );

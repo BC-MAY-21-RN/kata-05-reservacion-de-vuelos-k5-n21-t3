@@ -5,21 +5,29 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import {OriginToDestiny} from '../OriginToDestiny';
 import {CalendarPicker} from './CalendarPicker';
 import {ButtonLogOff} from '../../AutthenticationMethod/ButtonLogOff';
+import {BackArrow} from '../ArrowBack';
 
 export const CalendarScreen = ({navegacion, route}) => {
   const [day, setDay] = useState();
-  const {origin, destiny} = route.params;
+  const {origin, stateOrigin, destiny, stateDestiny} = route.params;
 
   return (
     <View>
-      <ArrowBack>
+      <BackArrow navegacion={navegacion} />
+      {/*    <ArrowBack>
         <TouchableHighlight onPress={() => navegacion.goBack()}>
           <Icon name="angle-left" size={40} color="#5c6ef8" />
         </TouchableHighlight>
-      </ArrowBack>
+      </ArrowBack> */}
 
       <ButtonLogOff navegacion={navegacion} />
-      <OriginToDestiny origin={origin} destiny={destiny} date={day} />
+      <OriginToDestiny
+        origin={origin}
+        destiny={destiny}
+        stateOrigin={stateOrigin}
+        stateDestiny={stateDestiny}
+        date={day}
+      />
 
       <TitleScreen>Select Date</TitleScreen>
 
@@ -31,7 +39,9 @@ export const CalendarScreen = ({navegacion, route}) => {
         onPress={() =>
           navegacion.navigate('Passengers', {
             origin: origin,
+            stateOrigin: stateOrigin,
             destiny: destiny,
+            stateDestiny: stateDestiny,
             date: day,
           })
         }>

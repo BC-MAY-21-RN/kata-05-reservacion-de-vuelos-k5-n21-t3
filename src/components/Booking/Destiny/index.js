@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import {View, TouchableHighlight, StyleSheet} from 'react-native';
 import {
   Container,
-  CustomInput,
   TitleScreen,
   NextButton,
   NextText,
@@ -12,21 +11,30 @@ import Icon from 'react-native-vector-icons/FontAwesome5';
 import {OriginToDestiny} from '../OriginToDestiny';
 import {PickerData} from '../../Picker';
 import {ButtonLogOff} from '../../AutthenticationMethod/ButtonLogOff';
+import {BackArrow} from '../ArrowBack';
 
 export const DestinyScreen = ({route, navegacion}) => {
   const [selectedCountry, setSelectedCountry] = useState();
-  const {origin} = route.params;
+  const [selectedState, setSelectedState] = useState();
+  const {origin, stateOrigin} = route.params;
 
   return (
     <View>
       <ButtonLogOff navegacion={navegacion} />
-      <ArrowBack>
+      <BackArrow navegacion={navegacion} />
+
+      {/*   <ArrowBack>
         <TouchableHighlight onPress={() => navegacion.goBack()}>
           <Icon name="angle-left" size={40} color="#5c6ef8" />
         </TouchableHighlight>
-      </ArrowBack>
+      </ArrowBack> */}
 
-      <OriginToDestiny origin={origin} destiny={selectedCountry} />
+      <OriginToDestiny
+        origin={origin}
+        stateOrigin={stateOrigin}
+        destiny={selectedCountry}
+        stateDestiny={selectedState}
+      />
 
       <TitleScreen>Where will you be {'\n'}flying to?</TitleScreen>
 
@@ -34,6 +42,7 @@ export const DestinyScreen = ({route, navegacion}) => {
         <PickerData
           selectedCountry={selectedCountry}
           setSelectedCountry={setSelectedCountry}
+          setSelectedState={setSelectedState}
         />
       </Container>
 
@@ -44,6 +53,8 @@ export const DestinyScreen = ({route, navegacion}) => {
           navegacion.navigate('Calendar', {
             destiny: selectedCountry,
             origin: origin,
+            stateOrigin: stateOrigin,
+            stateDestiny: selectedState,
           })
         }>
         <NextText>Next</NextText>

@@ -1,13 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import firestore from '@react-native-firebase/firestore';
 
 import {TitleScreen, NextButton, NextText, ViewMain} from './styled';
 import {OriginToDestiny} from '../OriginToDestiny';
 import auth from '@react-native-firebase/auth';
+import {BackArrow} from '../ArrowBack';
 //import getArrayFligths from '../../MyFlights/getVuelos';
 
 export const ConfirmationScreen = ({route, navegacion}) => {
-  const {origin, destiny, date, passengers} = route.params;
+  const {origin, stateOrigin, destiny, stateDestiny, date, passengers} =
+    route.params;
 
   const updateDataInFirebase = () => {
     //para agregar a la coleccion Flights de firebase nuevos vuelos
@@ -15,9 +17,11 @@ export const ConfirmationScreen = ({route, navegacion}) => {
       .collection('Flights')
       .add({
         IdUser: auth().currentUser.uid,
-        date: date,
-        destiny: destiny,
         origin: origin,
+        stateOrigin: stateOrigin,
+        destiny: destiny,
+        stateDestiny: stateDestiny,
+        date: date,
         passengers: passengers,
       })
       .then(() => {
@@ -29,7 +33,9 @@ export const ConfirmationScreen = ({route, navegacion}) => {
     <ViewMain>
       <OriginToDestiny
         origin={origin}
+        stateOrigin={stateOrigin}
         destiny={destiny}
+        stateDestiny={stateDestiny}
         date={date}
         passengers={passengers}
       />

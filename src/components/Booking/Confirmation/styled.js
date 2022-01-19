@@ -1,9 +1,3 @@
-/*
-  botones azules: #5c6ef8
-
-
-*/
-
 import styled from 'styled-components';
 
 export const ViewMain = styled.View`

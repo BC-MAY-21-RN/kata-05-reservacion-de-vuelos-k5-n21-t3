@@ -28,11 +28,6 @@ export const TittleLogin = styled.Text`
   margin-bottom: 40px;
   position: relative;
 `;
-export const LogedUser = styled.Text`
-  left: 31px;
-  position: absolute;
-  top: 75px;
-`;
 
 export const TextCustom = styled.Text`
   font-size: 15px;
@@ -75,14 +70,14 @@ export const TextSeparator = styled.Text`
   margin-top: -25px;
 `;
 
-export const ImageGoogle = styled.Image`
+/* export const ImageGoogle = styled.Image`
   position: absolute;
   width: 22px;
   height: 22px;
   margin: 7px 1px 1px 25px;
-`;
+`; */
 
-export const TextQuestion = styled.Text`
+export const TextQuestionLogin = styled.Text`
   margin: auto;
   font-size: 15px;
 `;

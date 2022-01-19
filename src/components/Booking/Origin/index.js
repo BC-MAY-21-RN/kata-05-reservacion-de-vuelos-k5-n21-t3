@@ -9,23 +9,25 @@ import {
 } from './styled';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {PickerData} from '../../Picker';
-//import {LogOff} from '../../AutthenticationMethod/LogOff';
 import {ButtonLogOff} from '../../AutthenticationMethod/ButtonLogOff';
 import {OriginToDestiny} from '../OriginToDestiny';
+import {BackArrow} from '../ArrowBack';
 
 export const OriginScreen = ({route, navegacion}) => {
   const [selectedCountry, setSelectedCountry] = useState(false);
+  const [selectedState, setSelectedState] = useState(false);
+
   return (
     <View>
       <ButtonLogOff navegacion={navegacion} />
-
-      <ArrowBack>
+      <BackArrow navegacion={navegacion} />
+      {/*  <ArrowBack>
         <TouchableHighlight onPress={() => navegacion.goBack()}>
           <Icon name="angle-left" size={40} color="#5C6EF8" />
         </TouchableHighlight>
-      </ArrowBack>
+      </ArrowBack> */}
 
-      <OriginToDestiny origin={selectedCountry} />
+      <OriginToDestiny origin={selectedCountry} stateOrigin={selectedState} />
 
       {/*Test para ver que si jala la variable<Text>{selectedCountry}</Text>*/}
       <TitleScreen>Where are you {'\n'}now?</TitleScreen>
@@ -34,6 +36,7 @@ export const OriginScreen = ({route, navegacion}) => {
         <PickerData
           selectedCountry={selectedCountry}
           setSelectedCountry={setSelectedCountry}
+          setSelectedState={setSelectedState}
         />
       </Container>
 
@@ -43,6 +46,7 @@ export const OriginScreen = ({route, navegacion}) => {
         onPress={() =>
           navegacion.navigate('Destiny', {
             origin: selectedCountry,
+            stateOrigin: selectedState,
           })
         }>
         <NextText>Next</NextText>

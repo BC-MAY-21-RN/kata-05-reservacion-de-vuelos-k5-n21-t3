@@ -57,7 +57,7 @@ export const LoginText = styled.Text`
   margin: auto;
 `;
 
-export const TextQuestion = styled.Text`
+export const TextQuestionSignUp = styled.Text`
   margin: auto;
   font-size: 15px;
 `;
@@ -67,14 +67,20 @@ export const TextSeparator = styled.Text`
   margin: auto;
   margin-top: -25px;
 `;
-
+/* 
 export const ImageGoogle = styled.Image`
   position: absolute;
   width: 22px;
   height: 22px;
   margin: 7px 1px 1px 25px;
-`;
+`; */
 
 export const CheckBoxView = styled.View`
   padding-left: 30;
+`;
+
+export const EyePosition = styled.Text`
+  position: absolute;
+  right: -2px;
+  top: 207px;
 `;
