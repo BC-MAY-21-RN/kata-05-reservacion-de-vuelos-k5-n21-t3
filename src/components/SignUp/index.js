@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {StyleSheet, ScrollView, TouchableHighlight} from 'react-native';
+import {StyleSheet, ScrollView, Text} from 'react-native';
 import {
   Container,
   CustomInput,
@@ -38,6 +38,7 @@ export const SignUpScreen = ({navegacion}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState();
 
   /*   async function onGoogleButtonPress() {
     // GoogleSignin.signOut();
@@ -64,7 +65,10 @@ export const SignUpScreen = ({navegacion}) => {
             setUserNameFullInput(true);
           }}
         />
-        <TextCustom>Email *</TextCustom>
+        <TextCustom>
+          Email *
+          {error ? <Text style={styles.errorText}> {error} </Text> : null}
+        </TextCustom>
 
         <CustomInput
           placeholder="Put your email. ej: @gmail.com, @outlook.com"
@@ -131,7 +135,7 @@ export const SignUpScreen = ({navegacion}) => {
         }
         onPress={() => {
           setLoading(true);
-          setLoading(CreateUser(email, password, navegacion));
+          setLoading(CreateUser(email, password, navegacion, setError));
           console.log(loading);
         }}>
         <LoginText>Sign up</LoginText>
@@ -168,4 +172,5 @@ const styles = StyleSheet.create({
   underline: {textDecorationLine: 'underline', color: '#5c6ef8'},
   loginEnabled: {backgroundColor: '#5c6ef8'},
   loginDisabled: {backgroundColor: '#c1c1c1'},
+  errorText: {color: 'red', fontSize: 10},
 });

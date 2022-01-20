@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, StyleSheet, TouchableHighlight} from 'react-native';
+import {View, StyleSheet, TouchableHighlight, Text} from 'react-native';
 import {
   Container,
   CustomInput,
@@ -35,6 +35,7 @@ export const LoginScreen = ({navegacion}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState();
 
   /*   async function onGoogleButtonPress() {
     // GoogleSignin.signOut();
@@ -57,7 +58,10 @@ export const LoginScreen = ({navegacion}) => {
         <AuthenticationMethod />
       </LogedUser> Esto sirve para ver que usuario está logeado*/}
       <Container>
-        <TextCustom>Email *</TextCustom>
+        <TextCustom>
+          Email *{' '}
+          {error ? <Text style={styles.errorText}> {error} </Text> : null}
+        </TextCustom>
         <CustomInput
           placeholder="Put your email. ej: @gmail.com, @outlook.com"
           onChangeText={email => {
@@ -65,7 +69,10 @@ export const LoginScreen = ({navegacion}) => {
             setEmailFullInput(true);
           }}
         />
-        <TextCustom>Password *</TextCustom>
+        <TextCustom>
+          Password * {}
+          {error ? <Text style={styles.errorText}> {error} </Text> : null}
+        </TextCustom>
 
         <CustomInput
           placeholder="Top secret password"
@@ -108,7 +115,7 @@ export const LoginScreen = ({navegacion}) => {
         }
         onPress={() => {
           setLoading(true);
-          setLoading(LoginUser(email, password, navegacion));
+          setLoading(LoginUser(email, password, navegacion, setError));
           console.log(loading);
         }}>
         <LoginText>Login</LoginText>
@@ -130,9 +137,7 @@ export const LoginScreen = ({navegacion}) => {
 
       <TextQuestionLogin>
         You dont have an account?{' '}
-        <Link
-          style={styles.underline}
-          to={{screen: 'SignUp', params: {navegacion: navegacion}}}>
+        <Link $ to={{screen: 'SignUp', params: {navegacion: navegacion}}}>
           {' '}
           Sign Up{' '}
         </Link>
@@ -147,4 +152,5 @@ const styles = StyleSheet.create({
   icon: {color: '#c1c1c1'},
   loginEnabled: {backgroundColor: '#5c6ef8'},
   loginDisabled: {backgroundColor: '#c1c1c1'},
+  errorText: {color: 'red', fontSize: 10},
 });

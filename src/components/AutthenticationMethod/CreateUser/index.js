@@ -1,7 +1,7 @@
 import auth from '@react-native-firebase/auth';
 import {Alert} from 'react-native';
 
-export const CreateUser = (email, password, navegacion) => {
+export const CreateUser = (email, password, navegacion, setError) => {
   if (email && password) {
     auth()
       .createUserWithEmailAndPassword(email, password)
@@ -16,7 +16,7 @@ export const CreateUser = (email, password, navegacion) => {
       .catch(error => {
         if (error.code === 'auth/email-already-in-use') {
           Alert.alert('Ups!', 'This email is already in use', [{text: 'Okey'}]);
-          console.log('That email address is already in use!');
+          setError('This email is already in use');
         }
         if (error.code === 'auth/invalid-email') {
           Alert.alert(
@@ -24,7 +24,7 @@ export const CreateUser = (email, password, navegacion) => {
             'This email is invalid, please use a valid email',
             [{text: 'Okey'}],
           );
-          console.log('That email address is invalid!');
+          setError('That email address is invalid!');
         }
         console.error(error);
       });
