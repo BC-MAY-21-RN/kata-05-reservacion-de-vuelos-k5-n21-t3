@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
-import {View, StyleSheet} from 'react-native';
+import React from 'react';
+import {StyleSheet} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
 
 export const PassengersPicker = ({selectedPassenger, setSelectedPassenger}) => {
-  //const [selectedPassenger, setSelectedPassenger] = useState();
   return (
     <Picker
       selectedValue={selectedPassenger}

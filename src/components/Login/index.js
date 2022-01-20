@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {View, StyleSheet, TouchableHighlight, Text} from 'react-native';
+import {View, StyleSheet, Text} from 'react-native';
 import {
   Container,
   CustomInput,
@@ -9,17 +9,14 @@ import {
   LoginButton,
   LoginText,
   TextQuestionLogin,
-  Eye,
   TextSeparator,
-  ImageGoogle,
 } from './styled';
 import {Link} from '@react-navigation/native';
 //import {AuthenticationMethod} from '../AutthenticationMethod';
 //import {LoadingAnimation} from '../Animation/Loading';
 import {LoginUser} from '../AutthenticationMethod/LogInUser';
-import Icon from 'react-native-vector-icons/FontAwesome5';
 /* import {GoogleSignin} from '@react-native-google-signin/google-signin'; */
-import auth from '@react-native-firebase/auth';
+/* import auth from '@react-native-firebase/auth'; */
 import {GoogleButton} from '../AutthenticationMethod/GoogleButton';
 import {ShowUnshowEye} from '../ShowUnshowEye';
 

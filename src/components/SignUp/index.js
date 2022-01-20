@@ -11,16 +11,15 @@ import {
   TextQuestionSignUp,
   TextSeparator,
   CheckBoxView,
-  Eye,
   EyePosition,
 } from './styled';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+
 import {CustomCheckBox} from './checkBoxTemplate';
 import {Link} from '@react-navigation/native';
 //import {AuthenticationMethod} from '../AutthenticationMethod';
 import {CreateUser} from '../AutthenticationMethod/CreateUser';
 /* import {GoogleSignin} from '@react-native-google-signin/google-signin'; */
-import auth from '@react-native-firebase/auth';
+/* import auth from '@react-native-firebase/auth'; */
 import {GoogleButton} from '../AutthenticationMethod/GoogleButton';
 import {ShowUnshowEye} from '../ShowUnshowEye';
 

@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import LottieView from 'lottie-react-native';
 
@@ -23,3 +23,4 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
 });
+ */

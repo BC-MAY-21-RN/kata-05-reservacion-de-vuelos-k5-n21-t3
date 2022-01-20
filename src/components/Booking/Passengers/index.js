@@ -1,13 +1,7 @@
 import React, {useState} from 'react';
-import {View, TouchableHighlight, StyleSheet} from 'react-native';
-import {
-  TitleScreen,
-  NextButton,
-  NextText,
-  ArrowBack,
-  Container,
-} from './styled';
-import Icon from 'react-native-vector-icons/FontAwesome5';
+import {View, StyleSheet} from 'react-native';
+import {TitleScreen, NextButton, NextText, Container} from './styled';
+
 import {OriginToDestiny} from '../OriginToDestiny';
 import {PassengersPicker} from './PassengersPicker';
 import {ButtonLogOff} from '../../AutthenticationMethod/ButtonLogOff';

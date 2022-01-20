@@ -1,5 +1,5 @@
 import {TouchableHighlight} from 'react-native';
-import React, {useState} from 'react';
+import React from 'react';
 import {Eye} from './styled';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 

@@ -1,9 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {
-  ScrollView,
   TouchableHighlight,
-  Button,
-  Text,
   View,
   FlatList,
 } from 'react-native';
