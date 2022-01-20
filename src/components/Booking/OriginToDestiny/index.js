@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, Text} from 'react-native';
 import {
   FlightsTopContainer,
@@ -12,7 +12,6 @@ import {
   BlackLine,
 } from './styled';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import {BackArrow} from '../ArrowBack';
 
 export const OriginToDestiny = ({
   origin,

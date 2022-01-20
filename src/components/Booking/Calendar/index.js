@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View, StyleSheet} from 'react-native';
-import {TitleScreen, NextButton, NextText, ArrowBack} from './styled';
+import {TitleScreen, NextButton, NextText} from './styled';
 import {OriginToDestiny} from '../OriginToDestiny';
 import {CalendarPicker} from './CalendarPicker';
 import {ButtonLogOff} from '../../AutthenticationMethod/ButtonLogOff';
